@@ -14,12 +14,12 @@
   * [第 05 章：状态驱动设计——结构化 TaskState 与并发 Actor 运行时](part-2/05-taskstate-runtime.md)
   * [第 06 章：持久化执行与人机协同——Durable Workflow 与 Checkpoint](part-2/06-durable-execution.md)
 
-* [第三篇：交互边界、上下文与知识工程 (Boundary & Context)](part-2/README.md)
+* [第三篇：交互边界、上下文与知识工程 (Boundary & Context)](part-3/README.md)
   * [第 07 章：工具工程与执行沙箱——Schema 约束与安全隔离](part-3/07-tool-engineering.md)
   * [第 08 章：上下文工程——Token 预算控制与工作记忆分层](part-3/08-context-engineering.md)
   * [第 09 章：走出向量库迷思——企业级 Hybrid RAG 架构](part-3/09-hybrid-rag.md)
 
-* [第四篇：可靠性工程、平台底座与规模化 (Reliability & Platform)](part-3/README.md)
+* [第四篇：可靠性工程、平台底座与规模化 (Reliability & Platform)](part-4/README.md)
   * [第 10 章：评测驱动开发 (EDD)——Tracing 链路与 Golden Benchmark](part-4/10-eval-observability.md)
   * [第 11 章：确定性安全围栏——Guardrails 与动作空间控制](part-4/11-guardrails-security.md)
   * [第 12 章：智能体网关与平台化治理——路由、缓存与成本控制](part-4/12-gateway-cost.md)

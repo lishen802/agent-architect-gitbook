@@ -1,0 +1,12 @@
+{
+  "title": "从程序员到智能体架构师：Agent Runtime 与系统工程实战",
+  "author": "lishen",
+  "description": "面向后端架构师、分布式系统与云原生开发者的 AI Agent 工程化落地指南",
+  "language": "zh-hans",
+  "plugins": [
+    "-sharing",
+    "search",
+    "back-to-top-button",
+    "code"
+  ]
+}

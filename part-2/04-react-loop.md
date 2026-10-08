@@ -1,18 +1,19 @@
-# 第 04 章：手写最小 ReAct Loop——从零构建控制反转执行引擎
+# 第 9 章 智能体执行循环与控制机制
 
-## 4.1 ReAct 协议本质
-Think -> Act -> Observe 循环驱动。
+> 本章为写作提纲，正文、示例与验证结果尚待补充。
 
-## 4.2 Go 最小实现
-```go
-for step := 0; step < MaxSteps; step++ {
-    resp := llm.Chat(ctx, state)
-    switch resp.Type {
-    case ToolCall:
-        res := registry.Execute(ctx, resp.Tool, resp.Args)
-        state.AppendObservation(res)
-    case FinalAnswer:
-        return resp.Answer
-    }
-}
-```
+## 9.1 从固定流程到动态决策
+
+在既有告警助手中识别需要反复查询证据的步骤，明确引入智能体的收益和新增风险。
+
+## 9.2 实现决策、执行与观察循环
+
+解释 ReAct 思路，使用 Go 展示模型提议、参数校验、策略裁决、工具执行和观察结果回写的最小链路。
+
+## 9.3 设置预算与终止条件
+
+限制步数、时间、Token 与工具调用次数；识别重复动作和无进展状态，区分模型声称完成与系统验收通过。
+
+## 9.4 验证循环的失败路径
+
+覆盖非法工具、参数错误、依赖超时、反复查询和过早结束；保留可诊断的执行轨迹。

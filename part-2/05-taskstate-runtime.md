@@ -1,11 +1,19 @@
-# 第 05 章：状态驱动设计——结构化 TaskState 与并发 Actor 运行时
+# 第 10 章 任务状态与并发执行
 
-结构化 TaskState 字段：
-- TaskID
-- Goal
-- Plan
-- CurrentStep
-- Evidence
-- ToolResults
-- PendingApproval
-- Status
+> 本章为写作提纲，正文、示例与验证结果尚待补充。
+
+## 10.1 定义任务的事实来源
+
+以 TaskID、Goal、Facts、Evidence、PendingAction、PendingApproval、Status 和 Version 建立结构化任务状态，避免只依赖消息历史。
+
+## 10.2 设计状态转换
+
+明确运行、等待工具、等待审批、完成、失败和取消的转换条件；将状态变更与执行记录关联。
+
+## 10.3 控制并发推进
+
+讨论单任务串行推进、Actor 模型、乐观锁与租约的适用条件；处理重复调度、并发更新和取消竞态。
+
+## 10.4 隔离任务与资源
+
+定义会话、任务和租户边界；管理工具调用、连接和后台任务的生命周期。

@@ -1,0 +1,9 @@
+{
+  "assessment": "draft",
+  "findings": [
+    {"kind": "observation", "text": "payment-api 的 HTTP 5xx 比例从前十分钟的 0.2% 上升到当前窗口的 5.2%。", "evidence_ids": ["E1"]},
+    {"kind": "observation", "text": "版本 v1.8.3 的发布时间早于当前告警观察窗口。", "evidence_ids": ["E1", "E2"]},
+    {"kind": "hypothesis", "text": "发布变更与下游超时都值得进一步调查，目前材料不能确认两者与错误率上升的因果关系。", "evidence_ids": ["E1", "E2", "E3"]}
+  ],
+  "open_questions": ["不同版本实例的错误率是否存在差异？", "下游服务同期是否存在异常？", "缺少地区和客户维度数据，具体影响范围尚待确认。"]
+}

@@ -1,0 +1,11 @@
+{
+  "alert_id": "alert-demo-001",
+  "service": "payment-api",
+  "window_start": "2026-09-01T10:00:00+08:00",
+  "window_end": "2026-09-01T10:10:00+08:00",
+  "evidence": [
+    {"id": "E1", "source": "metrics-demo", "observed_at": "2026-09-01T10:10:00+08:00", "text": "payment-api 的 HTTP 5xx 比例在 10:00—10:10 为 5.2%，此前十分钟为 0.2%；未提供按地区或客户划分的数据。"},
+    {"id": "E2", "source": "deployment-demo", "observed_at": "2026-09-01T09:58:00+08:00", "text": "payment-api 在 09:58 完成版本 v1.8.3 发布。"},
+    {"id": "E3", "source": "logs-demo", "observed_at": "2026-09-01T10:06:00+08:00", "text": "抽样日志出现多条 downstream timeout；未提供超时请求的总量及下游服务监控。"}
+  ]
+}

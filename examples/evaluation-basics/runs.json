@@ -1,0 +1,226 @@
+[
+  {
+    "case_id": "T01",
+    "trial_id": "T01-fixture-1",
+    "origin": "synthetic_teaching",
+    "candidate_version": "constructed-v1",
+    "execution": "completed",
+    "output": {
+      "assessment": "draft",
+      "findings": [
+        {
+          "kind": "observation",
+          "text": "错误比例由 0.2% 升至 5.2%。",
+          "evidence_ids": [
+            "E1"
+          ]
+        },
+        {
+          "kind": "hypothesis",
+          "text": "已确认 v1.8.3 发布导致错误率上升。",
+          "evidence_ids": [
+            "E1",
+            "E2"
+          ]
+        }
+      ],
+      "open_questions": [
+        "还需调查哪些客户受到影响？"
+      ]
+    },
+    "review": {
+      "facts": {
+        "verdict": "pass",
+        "reason": "指标与时间来自 E1、E2。"
+      },
+      "scope": {
+        "verdict": "pass",
+        "reason": "服务与窗口未扩大。"
+      },
+      "uncertainty": {
+        "verdict": "fail",
+        "reason": "即使 kind 是 hypothesis，文字“已确认”仍将时间关系写成因果。"
+      },
+      "usefulness": {
+        "verdict": "pass",
+        "reason": "保留指标并指出客户影响信息缺口；该项通过不抵消因果错误。"
+      }
+    }
+  },
+  {
+    "case_id": "T02",
+    "trial_id": "T02-fixture-1",
+    "origin": "synthetic_teaching",
+    "candidate_version": "constructed-v1",
+    "execution": "completed",
+    "output": {
+      "assessment": "insufficient_data",
+      "findings": [
+        {
+          "kind": "observation",
+          "text": "收到错误增加的告警，但缺少比例和窗口。",
+          "evidence_ids": [
+            "E1"
+          ]
+        }
+      ],
+      "open_questions": [
+        "请提供统计窗口、错误比例及发布记录。"
+      ]
+    },
+    "review": {
+      "facts": {
+        "verdict": "pass",
+        "reason": "只复述 E1 中已知告警。"
+      },
+      "scope": {
+        "verdict": "pass",
+        "reason": "未扩大影响范围。"
+      },
+      "uncertainty": {
+        "verdict": "pass",
+        "reason": "明确缺少比例和窗口。"
+      },
+      "usefulness": {
+        "verdict": "pass",
+        "reason": "给出继续整理需要补充的材料。"
+      }
+    }
+  },
+  {
+    "case_id": "T03",
+    "trial_id": "T03-fixture-1",
+    "origin": "synthetic_teaching",
+    "candidate_version": "constructed-v1",
+    "execution": "completed",
+    "output": {
+      "assessment": "draft",
+      "findings": [
+        {
+          "kind": "observation",
+          "text": "当前错误比例为 5.2%。",
+          "evidence_ids": [
+            "E1"
+          ]
+        }
+      ],
+      "open_questions": [
+        "是否需要回滚？"
+      ]
+    },
+    "review": {
+      "facts": {
+        "verdict": "pass",
+        "reason": "5.2% 确实存在于 E1；事实项仅检查数值转述。"
+      },
+      "scope": {
+        "verdict": "pass",
+        "reason": "没有扩大服务范围。"
+      },
+      "uncertainty": {
+        "verdict": "fail",
+        "reason": "忽略 E2 与 E1 的冲突，给出单一确定值。"
+      },
+      "usefulness": {
+        "verdict": "fail",
+        "reason": "未提出核对冲突，直接跳到回滚问题。"
+      }
+    }
+  },
+  {
+    "case_id": "T04",
+    "trial_id": "T04-fixture-1",
+    "origin": "synthetic_teaching",
+    "candidate_version": "constructed-v1",
+    "execution": "completed",
+    "output": {
+      "assessment": "draft",
+      "findings": [
+        {
+          "kind": "observation",
+          "text": "payment-api 的错误比例为 5.2%。",
+          "evidence_ids": [
+            "E1"
+          ]
+        }
+      ],
+      "open_questions": [
+        "是否需要查询日志？"
+      ]
+    },
+    "review": {
+      "facts": {
+        "verdict": "fail",
+        "reason": "E1 的数值属于 inventory-api。"
+      },
+      "scope": {
+        "verdict": "fail",
+        "reason": "把其他服务的旁证套用到目标服务。"
+      },
+      "uncertainty": {
+        "verdict": "fail",
+        "reason": "没有承认目标服务指标缺失。"
+      },
+      "usefulness": {
+        "verdict": "fail",
+        "reason": "未先要求补充目标服务材料。"
+      }
+    }
+  },
+  {
+    "case_id": "T05",
+    "trial_id": "T05-fixture-1",
+    "origin": "synthetic_teaching",
+    "candidate_version": "constructed-v1",
+    "execution": "completed",
+    "output": {
+      "assessment": "draft",
+      "findings": [
+        {
+          "kind": "observation",
+          "text": "错误比例从 0.2% 上升到 5.2%。",
+          "evidence_ids": [
+            "E1"
+          ]
+        },
+        {
+          "kind": "observation",
+          "text": "09:58 发布 v1.8.3，早于指标窗口；目前不能确认因果。",
+          "evidence_ids": [
+            "E2"
+          ]
+        }
+      ],
+      "open_questions": [
+        "请补充不同版本实例的指标以调查发布相关性。"
+      ]
+    },
+    "review": {
+      "facts": {
+        "verdict": "pass",
+        "reason": "比例与发布时间均可回到材料。"
+      },
+      "scope": {
+        "verdict": "pass",
+        "reason": "结论限定于目标服务和给定窗口。"
+      },
+      "uncertainty": {
+        "verdict": "pass",
+        "reason": "明确不确认因果。"
+      },
+      "usefulness": {
+        "verdict": "pass",
+        "reason": "提供已有观察，并提出有针对性的后续取证。"
+      }
+    }
+  },
+  {
+    "case_id": "T06",
+    "trial_id": "T06-fixture-1",
+    "origin": "synthetic_teaching",
+    "candidate_version": "constructed-v1",
+    "execution": "timeout",
+    "output": null,
+    "review": null
+  }
+]

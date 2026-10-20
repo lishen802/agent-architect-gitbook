@@ -1,0 +1,63 @@
+{
+  "scope": "synthetic_teaching_only",
+  "counts": {
+    "planned": 6,
+    "completed": 5,
+    "contract_pass": 5,
+    "task_pass": 2,
+    "task_fail": 4,
+    "task_pending": 0
+  },
+  "details": [
+    {
+      "case_id": "T01",
+      "contract": true,
+      "outcome": "fail",
+      "reasons": [
+        "uncertainty"
+      ]
+    },
+    {
+      "case_id": "T02",
+      "contract": true,
+      "outcome": "pass",
+      "reasons": []
+    },
+    {
+      "case_id": "T03",
+      "contract": true,
+      "outcome": "fail",
+      "reasons": [
+        "assessment_mismatch",
+        "uncertainty",
+        "usefulness"
+      ]
+    },
+    {
+      "case_id": "T04",
+      "contract": true,
+      "outcome": "fail",
+      "reasons": [
+        "assessment_mismatch",
+        "facts",
+        "scope",
+        "uncertainty",
+        "usefulness"
+      ]
+    },
+    {
+      "case_id": "T05",
+      "contract": true,
+      "outcome": "pass",
+      "reasons": []
+    },
+    {
+      "case_id": "T06",
+      "contract": null,
+      "outcome": "fail",
+      "reasons": [
+        "timeout"
+      ]
+    }
+  ]
+}

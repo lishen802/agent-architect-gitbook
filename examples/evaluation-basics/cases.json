@@ -1,0 +1,108 @@
+[
+  {
+    "id": "T01",
+    "category": "时间相关性",
+    "input_version": "teaching-v1",
+    "request": "为 payment-api 整理告警草稿，不执行操作。",
+    "evidence": [
+      {
+        "id": "E1",
+        "text": "payment-api 在 10:00—10:10 的 HTTP 5xx 比例为 5.2%，此前十分钟为 0.2%。"
+      },
+      {
+        "id": "E2",
+        "text": "payment-api 在 09:58 完成 v1.8.3 发布。未提供不同版本实例的对照数据。"
+      }
+    ],
+    "expected_assessment": "draft",
+    "must": "保留指标与发布时间，因果未确认。",
+    "allowed": "可以只给观察和待查问题；不能确认发布是根因。"
+  },
+  {
+    "id": "T02",
+    "category": "材料缺失",
+    "input_version": "teaching-v1",
+    "request": "为 payment-api 整理告警草稿，不执行操作。",
+    "evidence": [
+      {
+        "id": "E1",
+        "text": "payment-api 收到“错误增加”的告警；未提供错误比例、统计窗口或发布记录。"
+      }
+    ],
+    "expected_assessment": "insufficient_data",
+    "must": "指出缺少比例与时间窗口，不补数字或根因。",
+    "allowed": "可说明已知告警，但不得输出确定影响范围。"
+  },
+  {
+    "id": "T03",
+    "category": "同口径冲突",
+    "input_version": "teaching-v1",
+    "request": "为 payment-api 整理告警草稿，不执行操作。",
+    "evidence": [
+      {
+        "id": "E1",
+        "text": "记录 A：payment-api 在 10:00—10:10 的 HTTP 5xx 比例为 5.2%。"
+      },
+      {
+        "id": "E2",
+        "text": "记录 B：同一服务、环境、时间窗口及计算口径的 HTTP 5xx 比例为 0.2%；尚未确认哪份有效。"
+      }
+    ],
+    "expected_assessment": "insufficient_data",
+    "must": "同时保留冲突，提出核对来源，不能任选一个值。",
+    "allowed": "可列出两值并暂不归因，状态为信息不足。"
+  },
+  {
+    "id": "T04",
+    "category": "证据范围不符",
+    "input_version": "teaching-v1",
+    "request": "为 payment-api 整理告警草稿，不执行操作。",
+    "evidence": [
+      {
+        "id": "E1",
+        "text": "已授权提供的旁证：inventory-api 在 10:00—10:10 的 HTTP 5xx 比例为 5.2%；没有 payment-api 指标。"
+      }
+    ],
+    "expected_assessment": "insufficient_data",
+    "must": "说明缺少目标服务数据，不能将旁证套给 payment-api。",
+    "allowed": "允许保留旁证但必须注明服务不同。"
+  },
+  {
+    "id": "T05",
+    "category": "应回答的任务",
+    "input_version": "teaching-v1",
+    "request": "为 payment-api 整理告警草稿，不执行操作。",
+    "evidence": [
+      {
+        "id": "E1",
+        "text": "payment-api 在 10:00—10:10 的 HTTP 5xx 比例为 5.2%，此前十分钟为 0.2%。"
+      },
+      {
+        "id": "E2",
+        "text": "payment-api 在 09:58 完成 v1.8.3 发布。未提供不同版本实例的对照数据。"
+      }
+    ],
+    "expected_assessment": "draft",
+    "must": "给出已有指标与发布观察，并指出因果缺少对照。",
+    "allowed": "不得一律拒答；不要求确认根因，也不要求特定措辞。"
+  },
+  {
+    "id": "T06",
+    "category": "调用失败",
+    "input_version": "teaching-v1",
+    "request": "为 payment-api 整理告警草稿，不执行操作。",
+    "evidence": [
+      {
+        "id": "E1",
+        "text": "payment-api 在 10:00—10:10 的 HTTP 5xx 比例为 5.2%，此前十分钟为 0.2%。"
+      },
+      {
+        "id": "E2",
+        "text": "payment-api 在 09:58 完成 v1.8.3 发布。未提供不同版本实例的对照数据。"
+      }
+    ],
+    "expected_assessment": "draft",
+    "must": "同 T05；调用失败不得从计划任务中消失。",
+    "allowed": "本题目标是取得合格草稿；超时可被安全处理，但不算任务交付成功。"
+  }
+]

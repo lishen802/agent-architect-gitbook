@@ -1,4 +1,4 @@
-# 附录 B OpenAI Agents SDK 的核心抽象
+# OpenAI Agents SDK 阅读提纲
 
 > 本附录为写作提纲，尚未完成版本核验与示例验证。
 

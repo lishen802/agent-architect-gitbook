@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820" role="img" aria-labelledby="title desc">
+<title id="title">图 1-2 三种控制模式的组合</title>
+<desc id="desc">确定性代码包住工作流，工作流中只在需要动态调查的局部放入智能体；三者组合在同一个系统中。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker></defs>
+<rect width="1400" height="820" fill="#f8fafc"/>
+<text x="50" y="52" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="600" fill="#172b4d" text-anchor="start">三种控制模式的组合</text>
+<text x="50" y="84" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="19" font-weight="normal" fill="#475569" text-anchor="start">图 1-2｜三者不是前后替代的技术代际，而是在同一系统中由外向内嵌套。</text>
+<rect x="50" y="110" width="860" height="640" rx="12" fill="#eaf2ff" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="76" y="148" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="600" fill="#172b4d" text-anchor="start">确定性代码</text>
+<text x="76" y="180" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">身份、权限、配额、事务、最终提交</text>
+<rect x="100" y="210" width="760" height="500" rx="12" fill="#f0fdfa" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="126" y="248" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="600" fill="#172b4d" text-anchor="start">工作流</text>
+<text x="126" y="280" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">长任务编排、等待、审批、补偿；阶段与转移预先定义</text>
+<rect x="150" y="315" width="660" height="160" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="176" y="350" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">固定阶段：接收告警 → 收集材料 → 生成摘要 → 等待审批 → 执行</text>
+<text x="176" y="385" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">每个阶段的进入条件、失败出口由代码规定</text>
+<text x="176" y="420" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">阶段内部可以调用模型做分类、抽取或摘要</text>
+<rect x="150" y="500" width="660" height="180" rx="12" fill="#fff7ed" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="8 6"/>
+<text x="176" y="538" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="600" fill="#172b4d" text-anchor="start">智能体（局部）</text>
+<text x="176" y="572" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">只放在无法预先穷举、需要根据观察选择下一步的环节</text>
+<text x="176" y="604" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">例：根据日志异常决定接着查实例版本还是下游依赖</text>
+<text x="176" y="636" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">可用工具、预算与终止条件由外层规定</text>
+<rect x="950" y="110" width="400" height="190" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="970" y="143" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d" text-anchor="start">下一步由谁决定</text>
+<text x="970" y="174" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">确定性代码：业务分支</text>
+<text x="970" y="202" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">工作流：预定义的状态转移</text>
+<text x="970" y="230" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">智能体：模型在允许范围内提议</text>
+<rect x="950" y="330" width="400" height="190" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="970" y="363" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d" text-anchor="start">主要风险</text>
+<text x="970" y="394" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">代码：规则遗漏、依赖失败</text>
+<text x="970" y="422" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">工作流：转移规则、版本迁移</text>
+<text x="970" y="450" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">智能体：漂移、循环、越权、成本</text>
+<rect x="950" y="550" width="400" height="200" rx="12" fill="#f0fdfa" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="970" y="583" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d" text-anchor="start">分配原则</text>
+<text x="970" y="614" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">能稳定写成规则的，用代码</text>
+<text x="970" y="642" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">拓扑已知的多阶段，用工作流</text>
+<text x="970" y="670" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">必须边看边决定的，才用智能体</text>
+<text x="970" y="698" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">不可逆动作，收回到代码与审批</text>
+<text x="50" y="795" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="19" font-weight="normal" fill="#475569" text-anchor="start">阅读提示：内层能力的作用范围由外层决定；智能体的提议仍要经过外层的校验、授权与提交。</text>
+</svg>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1090" viewBox="0 0 1400 1090" role="img" aria-labelledby="title desc">
+<title id="title">图 S-1 AI 应用参考架构</title>
+<desc id="desc">入口与身份之下是由代码负责的应用控制面，包含编排、上下文组装、模型网关、输出校验、策略与授权、任务状态和人工协作；模型服务、知识检索和工具执行器挂在控制面之下；评测与观测贯穿各层。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker></defs>
+<rect width="1400" height="1090" fill="#f8fafc"/>
+<text x="50" y="52" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="600" fill="#172b4d">AI 应用参考架构</text>
+<text x="50" y="84" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="19" font-weight="normal" fill="#475569">图 S-1｜模型与外部能力都挂在应用控制面上，由代码决定调用顺序、校验结果和授权动作。</text>
+<rect x="50" y="110" width="1300" height="90" rx="12" fill="#eaf2ff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="70" y="143" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d">入口与身份</text>
+<text x="70" y="176" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">认证、租户、会话与限流；把调用者身份注入后续各层，身份与凭证不经由模型转述。</text>
+<path d="M700,200 L700,228" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="50" y="232" width="1300" height="450" rx="14" fill="#eef2f7" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="8 6"/>
+<text x="74" y="265" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="600" fill="#172b4d">应用控制面：确定性骨架，由代码负责</text>
+<rect x="80" y="285" width="500" height="150" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="100" y="318" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d">编排</text>
+<text x="100" y="351" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">固定流程 / 工作流 / 受约束的智能体循环</text>
+<text x="100" y="380" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">决定何时调用模型、调用什么能力</text>
+<text x="100" y="409" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">持有预算、终止权与失败出口</text>
+<rect x="610" y="285" width="345" height="150" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="630" y="318" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d">上下文组装</text>
+<text x="630" y="351" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">为本次调用选择指令与材料</text>
+<text x="630" y="380" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">标注来源、版本与访问范围</text>
+<text x="630" y="409" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">控制输入规模</text>
+<rect x="985" y="285" width="335" height="150" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="1005" y="318" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d">模型网关</text>
+<text x="1005" y="351" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">供应商适配与超时</text>
+<text x="1005" y="380" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">限流、重试与用量记录</text>
+<text x="1005" y="409" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">记录模型与提示版本</text>
+<rect x="80" y="465" width="290" height="170" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="100" y="498" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d">输出校验</text>
+<text x="100" y="531" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">格式与 Schema</text>
+<text x="100" y="560" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">业务约束与引用关系</text>
+<text x="100" y="589" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">截断与拒绝的处理</text>
+<rect x="395" y="465" width="290" height="170" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="415" y="498" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d">策略与授权</text>
+<text x="415" y="531" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">主体、资源与动作</text>
+<text x="415" y="560" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">审批规则与参数绑定</text>
+<text x="415" y="589" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">模型提议不等于授权</text>
+<rect x="710" y="465" width="290" height="170" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="730" y="498" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d">任务状态</text>
+<text x="730" y="531" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">阶段、版本与待执行动作</text>
+<text x="730" y="560" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">操作标识与执行结果</text>
+<text x="730" y="589" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">与对话历史分开保存</text>
+<rect x="1025" y="465" width="295" height="170" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="1045" y="498" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d">人工协作</text>
+<text x="1045" y="531" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">审阅、审批与接手</text>
+<text x="1045" y="560" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">交接材料与责任人</text>
+<text x="1045" y="589" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">挂起后的恢复条件</text>
+<text x="80" y="665" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="19" font-weight="600" fill="#1e3a8a">关键路径：模型提议 → 输出校验 → 策略裁决 → 工具执行 → 结果核对并记录状态</text>
+<path d="M260,682 L260,712" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<path d="M700,682 L700,712" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<path d="M1140,682 L1140,712" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="50" y="716" width="420" height="150" rx="12" fill="#f0fdfa" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="70" y="749" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d">知识与检索</text>
+<text x="70" y="782" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">文档处理、索引与查询</text>
+<text x="70" y="811" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">检索前按权限过滤</text>
+<text x="70" y="840" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">保留版本与适用范围</text>
+<rect x="490" y="716" width="420" height="150" rx="12" fill="#f0fdfa" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="510" y="749" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d">工具执行器</text>
+<text x="510" y="782" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">工具契约、参数与超时</text>
+<text x="510" y="811" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">幂等、审计与结果规范化</text>
+<text x="510" y="840" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">可经 MCP 等协议接入</text>
+<rect x="930" y="716" width="420" height="150" rx="12" fill="#f0fdfa" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="950" y="749" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d">模型服务</text>
+<text x="950" y="782" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">托管接口或自建推理</text>
+<text x="950" y="811" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">只返回候选内容</text>
+<text x="950" y="840" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">不持有业务凭证</text>
+<rect x="50" y="890" width="1300" height="100" rx="12" fill="#fff7ed" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="70" y="923" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d">评测与观测（贯穿各层）</text>
+<text x="70" y="956" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">任务集与判定、调用链追踪、模型与提示版本、成本与延迟；线上失败样例回流到任务集。</text>
+<text x="50" y="1030" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="19" font-weight="normal" fill="#475569">阅读提示：这是完整形态，第一版通常只需编排、上下文组装、模型适配、输出校验与评测样例。</text>
+<text x="50" y="1063" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="19" font-weight="normal" fill="#475569">组件按出现的需求信号逐个加入；图中方框表示职责，不要求各自部署为独立服务。</text>
+</svg>

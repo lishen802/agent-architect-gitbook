@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="860" viewBox="0 0 1400 860" role="img" aria-labelledby="title desc">
+<title id="title">图 1-1 控制流由谁决定</title>
+<desc id="desc">左侧规则程序的下一步由代码分支决定；右侧智能体的下一步由模型在允许范围内提议，校验、授权、执行与终止仍由运行时负责。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker></defs>
+<rect width="1400" height="860" fill="#f8fafc"/>
+<text x="50" y="52" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="600" fill="#172b4d" text-anchor="start">控制流由谁决定</text>
+<text x="50" y="84" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="19" font-weight="normal" fill="#475569" text-anchor="start">图 1-1｜区别不在于是否调用模型，而在于下一步动作是否在运行时由模型提议。</text>
+<rect x="50" y="110" width="620" height="640" rx="12" fill="#eef2f7" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="8 6"/>
+<text x="74" y="145" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="600" fill="#172b4d" text-anchor="start">规则程序：下一步写在代码分支中</text>
+<rect x="110" y="175" width="500" height="80" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="130" y="208" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d" text-anchor="start">接收告警</text>
+<path d="M360,255 L360,285" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="110" y="289" width="500" height="80" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="130" y="322" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d" text-anchor="start">查询服务指标</text>
+<path d="M360,369 L360,399" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="110" y="403" width="500" height="100" rx="12" fill="#eaf2ff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="130" y="436" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d" text-anchor="start">错误率是否超过阈值？</text>
+<text x="130" y="467" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">判断规则由开发者预先写定</text>
+<path d="M235,503 L235,563" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<text x="248" y="540" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">是</text>
+<path d="M485,503 L485,563" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<text x="498" y="540" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">否</text>
+<rect x="110" y="567" width="250" height="80" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="130" y="600" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d" text-anchor="start">创建事故单</text>
+<rect x="380" y="567" width="230" height="80" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="400" y="600" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d" text-anchor="start">结束</text>
+<text x="74" y="700" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">同样输入与外部状态，走同一条路径</text>
+<rect x="730" y="110" width="620" height="640" rx="12" fill="#eef2f7" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="8 6"/>
+<text x="754" y="145" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="600" fill="#172b4d" text-anchor="start">智能体：下一步在运行时由模型提议</text>
+<rect x="790" y="175" width="500" height="80" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="810" y="208" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d" text-anchor="start">目标与当前任务状态</text>
+<path d="M1040,255 L1040,285" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="790" y="289" width="500" height="100" rx="12" fill="#fff7ed" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="810" y="322" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d" text-anchor="start">模型提议下一步</text>
+<text x="810" y="353" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">查指标、查发布、请求人工或宣布完成</text>
+<path d="M1040,389 L1040,419" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="790" y="423" width="500" height="100" rx="12" fill="#eaf2ff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="810" y="456" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d" text-anchor="start">运行时校验与授权</text>
+<text x="810" y="487" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">不合法或不允许的提议不会执行</text>
+<path d="M1040,523 L1040,553" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="790" y="557" width="500" height="100" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="810" y="590" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d" text-anchor="start">执行并记录观察结果</text>
+<text x="810" y="621" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">结果写入任务状态</text>
+<path d="M790,607 L760,607 L760,339 L786,339" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<text x="686" y="480" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">继续</text>
+<text x="754" y="700" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155" text-anchor="start">终止条件与是否真正完成，由运行时判定</text>
+<text x="50" y="800" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="19" font-weight="normal" fill="#475569" text-anchor="start">阅读提示：右侧方框中只有“模型提议下一步”由模型完成，其余仍是代码职责。</text>
+<text x="50" y="832" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="19" font-weight="normal" fill="#475569" text-anchor="start">模型在固定流程中只做分类或摘要时，控制流仍属于左侧形态。</text>
+</svg>

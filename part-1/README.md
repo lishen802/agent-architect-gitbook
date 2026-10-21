@@ -5,3 +5,4 @@
 - [第 1 章 AI 应用的软件工程基础](01-software-laws.md)
 - [第 2 章 从需求到方案：智能体应用的架构决策](02-architecture-matrix.md)
 - [第 3 章 AI 应用的设计原则与常见误区](03-five-misconceptions.md)
+- [设计速查：参考架构、常用模式与构思流程](design-handbook.md)：把前三章整理成可直接套用的参考架构、十种模式和八步构思流程。

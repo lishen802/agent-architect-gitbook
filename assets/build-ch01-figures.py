@@ -46,7 +46,7 @@ def control_modes():
     names = [('接收告警', 'neutral'), ('收集材料', 'neutral'), ('生成摘要', 'model'), ('审批执行', 'human')]
     cards = []
     for i, (n, k) in enumerate(names):
-        cards.append(f.card(72 + i * 138, 282, 124, n, kind=k))
+        cards.append(f.card(72 + i * 142, 282, 116, n, kind=k))  # 卡片间留 26px，箭头可见
     for p, q in zip(cards, cards[1:]):
         f.arrow((p['r'], p['cy']), (q['x'] - 4, q['cy']), style='flow')
     f.group(80, 424, 520, 180, '④ 受约束的智能体（局部）', 'model')

@@ -3,7 +3,7 @@ from figlib import Figure
 
 
 def decision_map():
-    f = Figure(1000, 980, '图 2-1 从需求到方案的分层选型图',
+    f = Figure(1000, 1008, '图 2-1 从需求到方案的分层选型图',
                '先明确任务与验收、比较无需模型的基线，再选择控制方式；信息获取、动作与授权、状态与恢复分别决定；'
                '最后形成一页方案并用最小实验验证，不满足时回到对应决策。', label='图 2-1｜从需求到方案的分层选型图')
     a = f.card(70, 76, 900, '明确任务与验收', ['使用者、交付物、错误后果，以及无法判断时的出口'], kind='neutral', badge=1, align='left')
@@ -35,7 +35,8 @@ def decision_map():
             label='质量或预算不满足：回到对应决策修正', at=(560, ly + 6))
     f.raw(f'<path d="M40,{g4 + 85} L40,{g3 + 85}" stroke="#64748b" stroke-width="2" fill="none" stroke-dasharray="7 5"/>')
     f.arrow((40, g3 + 85), (66, g3 + 85), style='loop')
-    f.legend(40, ly + 50, ['code', 'model', 'external', 'human', 'state'], extra=[('main', '设计顺序'), ('loop', '回路')])
+    f.legend(40, ly + 50, ['code', 'model', 'external', 'human', 'state'], neutral=False)
+    f.legend(40, ly + 78, [], extra=[('main', '设计顺序'), ('loop', '回路')])
     f.save('02-decision-map.svg')
 
 

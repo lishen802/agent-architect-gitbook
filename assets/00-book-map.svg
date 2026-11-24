@@ -84,6 +84,8 @@
 <text x="319.0" y="614.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">人工</text>
 <rect x="373.0" y="601" width="22" height="16" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
 <text x="403.0" y="614.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">状态与存储</text>
-<path d="M508.0,609 L538.0,609" stroke="#334155" stroke-width="2.5" marker-end="url(#ah-main)"/>
-<text x="548.0" y="614.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">阅读顺序</text>
+<rect x="508.0" y="601" width="22" height="16" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="538.0" y="614.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">一般步骤</text>
+<path d="M626.0,609 L656.0,609" stroke="#334155" stroke-width="2.5" marker-end="url(#ah-main)"/>
+<text x="666.0" y="614.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">阅读顺序</text>
 </svg>

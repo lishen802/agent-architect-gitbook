@@ -82,7 +82,7 @@
 
 ## 15.3 难点
 
-**界面可操作与业务成功要分开判断。** 浏览器可以完成点击，服务器却可能仍在处理或拒绝提交。某些自动化工具会在操作前检查元素是否可见、稳定、能接收事件，这些都是操作条件；订单是否已经创建，要由业务记录证明。具体实现例见 [Playwright 的 actionability 文档](https://playwright.dev/docs/actionability)。
+**界面可操作与业务成功要分开判断。** 浏览器可以完成点击，服务器却可能仍在处理或拒绝提交。某些自动化工具会在操作前检查元素是否可见、稳定、能接收事件，这些都是操作条件；订单是否已经创建，要由业务记录证明。具体实现例见 [Playwright：Auto-waiting（actionability checks）](https://playwright.dev/docs/actionability)。
 
 **观察会过期。** 页面可能在截图后变化，价格和库存也可能在审批等待期间更新。重要动作前应重新观察目标与必要业务条件；检测到不一致时停止或返回澄清，不依赖旧坐标继续点击。
 
@@ -142,7 +142,7 @@
 
 ## 资料与适用范围
 
-[Playwright：Actionability](https://playwright.dev/docs/actionability) 于 2026 年 11 月 24 日核对，文档列出可见、稳定、可接收事件、启用、可编辑等操作前检查；本章只用它说明操作条件与业务结果的区别，不涉及该框架的具体用法。中国境内适用规则以[附录 D](../appendix/compliance-cn.md)为准。采购案例、一页方案与验收样例均为本书的教学设计。
+[Playwright：Auto-waiting（actionability checks）](https://playwright.dev/docs/actionability) 于 2026 年 11 月 24 日核对，文档列出可见、稳定、可接收事件、启用、可编辑等操作前检查；本章只用它说明操作条件与业务结果的区别，不涉及该框架的具体用法。中国境内适用规则以[附录 D](../appendix/compliance-cn.md)为准。采购案例、一页方案与验收样例均为本书的教学设计。
 
 ## 迁移练习
 

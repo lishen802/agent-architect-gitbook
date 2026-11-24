@@ -88,6 +88,8 @@
 <text x="482.0" y="795.9" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">人工</text>
 <rect x="536.0" y="782.9000000000001" width="22" height="16" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
 <text x="566.0" y="795.9" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">状态与存储</text>
-<path d="M671.0,790.9000000000001 L701.0,790.9000000000001" stroke="#334155" stroke-width="2.5" marker-end="url(#ah-main)"/>
-<text x="711.0" y="795.9" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">受约束的调用路径</text>
+<rect x="671.0" y="782.9000000000001" width="22" height="16" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="701.0" y="795.9" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">一般步骤</text>
+<path d="M789.0,790.9000000000001 L819.0,790.9000000000001" stroke="#334155" stroke-width="2.5" marker-end="url(#ah-main)"/>
+<text x="829.0" y="795.9" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">受约束的调用路径</text>
 </svg>

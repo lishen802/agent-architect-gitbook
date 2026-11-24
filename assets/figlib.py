@@ -8,6 +8,7 @@
 - 主路径 2.5px 深色实线，回路与异常路径虚线；箭头标签带底色，避免压字；
 - 节点文字垂直居中、卡片高度按行数计算；超出卡片宽度的文字在生成时直接报错。
 """
+import math
 from html import escape
 from pathlib import Path
 import unicodedata
@@ -62,6 +63,7 @@ class Figure:
         self.min_font = 12 * w / 740
         self.out = []
         self.used = []
+        self.has_neutral = False  # 画过白色“一般步骤”卡片时，图例自动补上这一项
         self.title = title
         self.out.append(
             f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" '
@@ -95,6 +97,8 @@ class Figure:
         self.out.append(s)
 
     def mark(self, kind):
+        if kind == 'neutral':
+            self.has_neutral = True
         if kind not in self.used and kind != 'neutral':
             self.used.append(kind)
 
@@ -161,8 +165,23 @@ class Figure:
                         f'rx="{size * 0.72:.1f}" fill="{bg}" stroke="{border}" stroke-width="1"/>')
         self.text(x, y, s, size, color, 'normal', anchor)
 
-    def arrow(self, *pts, style='main', label=None, at=None, lcolor=None, anchor='middle', rounded=10):
+    def arrow(self, *pts, style='main', label=None, at=None, lcolor=None, anchor='middle', rounded=10,
+              towards=None):
+        """towards：本箭头意图指向的目标点（通常是目标卡片中心），用于检查方向没有画反。"""
         color, width, dash = ARROWS[style]
+        segs = [math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]) for i in range(1, len(pts))]
+        total = sum(segs)
+        if total < 12:
+            raise ValueError(f'{self.title}: 箭头过短 {total:.1f}px，起止 {pts[0]} → {pts[-1]}')
+        if any(l == 0 for l in segs):
+            raise ValueError(f'{self.title}: 箭头含零长度线段 {pts}')
+        (x0, y0), (x1, y1) = pts[0], pts[-1]
+        if towards is not None:
+            tx, ty = towards
+            if (x1 - x0) * (tx - x0) + (y1 - y0) * (ty - y0) <= 0:
+                raise ValueError(f'{self.title}: 箭头方向与目标相反，起 {pts[0]} 止 {pts[-1]} 目标 {towards}')
+        if len(pts) == 2 and math.hypot(x1 - x0, y1 - y0) < 12:
+            raise ValueError(f'{self.title}: 箭头过短')
         d = f'M{pts[0][0]:.1f},{pts[0][1]:.1f}'
         for i in range(1, len(pts)):
             x, y = pts[i]
@@ -182,9 +201,11 @@ class Figure:
             lx, ly = at
             self.pill(lx, ly, label, lcolor or (color if style in ('fail', 'ok', 'model') else SUB), anchor=anchor)
 
-    def legend(self, x, y, kinds=None, extra=()):
+    def legend(self, x, y, kinds=None, extra=(), neutral=True):
         """kinds: 语义色块；extra: [('main','主路径'),('loop','回路')] 线型说明。"""
-        kinds = kinds if kinds is not None else self.used
+        kinds = list(kinds if kinds is not None else self.used)
+        if neutral and self.has_neutral and 'neutral' not in kinds:
+            kinds.append('neutral')
         cx = x
         for k in kinds:
             fill, stroke, _, name = KINDS[k]

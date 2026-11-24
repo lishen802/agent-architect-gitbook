@@ -32,7 +32,7 @@ def control_boundary():
             label='继续', at=(548, (t['cy'] + m['cy']) / 2 + 6))
     end = f.card(580, 660, 340, '终止：结束或交给人工', kind='human')
     f.arrow((t['cx'], t['b']), (end['cx'], end['y'] - 4), style='ok')
-    f.legend(36, 786, ['model', 'code', 'external', 'state'], extra=[('main', '主路径'), ('loop', '回路')])
+    f.legend(36, 786, ['model', 'code', 'external', 'human', 'state'], extra=[('main', '主路径'), ('loop', '回路')])
     f.save('01-control-boundary.svg')
 
 

@@ -21,3 +21,6 @@ redirects:
   part-4/11-guardrails-security: part-5/21-security-governance.md
   part-4/12-gateway-cost: part-5/22-gateway-cost.md
   part-5/14-sre-agent-evolution: part-6/23-sre-agent-evolution.md
+  templates/one-page-design: appendix/templates/one-page-design.md
+  templates/evaluation-case: appendix/templates/evaluation-case.md
+  templates/tool-contract: appendix/templates/tool-contract.md

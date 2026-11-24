@@ -18,7 +18,7 @@
 
 ![图 S-1 AI 应用参考架构](../assets/s1-reference-architecture.svg)
 
-图 S-1 把 AI 应用分为四部分：入口与身份、应用控制面、能力接入、评测与观测。核心只有一句话：**模型和外部能力都挂在应用控制面上，由代码决定调用顺序、校验结果和授权动作。** 第 1 章的“模型提议，系统校验，策略裁决，工具执行”，就是控制面内部的关键路径。图的构建源文件见 [build-reference-architecture.py](../assets/build-reference-architecture.py)。
+图 S-1 把 AI 应用分为四部分：入口与身份、应用控制面、能力接入、评测与观测。核心只有一句话：**模型和外部能力都挂在应用控制面上，由代码决定调用顺序、校验结果和授权动作。** 第 1 章的“模型提议，系统校验，策略裁决，工具执行”，就是控制面内部的关键路径。图的构建源文件见 [build-reference-architecture.py](https://github.com/lishen802/agent-architect-gitbook/blob/main/assets/build-reference-architecture.py)。
 
 ### 组件职责与后端对应
 
@@ -68,7 +68,7 @@ Model Context Protocol（MCP）是一项开放协议，规定 AI 应用与提供
 
 - 工具调用照常经过输出校验、策略与授权，审批规则不因接入方式改变。
 - 工具描述和返回内容按外部输入处理，不能扩大调用者原有的权限。
-- 写操作的幂等、结果核对与审计，仍按[工具契约模板](../templates/tool-contract.md)逐项确认。
+- 写操作的幂等、结果核对与审计，仍按[工具契约模板](../appendix/templates/tool-contract.md)逐项确认。
 
 ## S.2 模式库
 
@@ -252,7 +252,7 @@ Model Context Protocol（MCP）是一项开放协议，规定 AI 应用与提供
 
 ## S.3 八步构思流程
 
-下面八步对应[一页方案模板](../templates/one-page-design.md)的各项。每一步先回答问题，再把答案写进模板的对应位置。
+下面八步对应[一页方案模板](../appendix/templates/one-page-design.md)的各项。每一步先回答问题，再把答案写进模板的对应位置。
 
 | 步骤 | 要回答的问题 | 常见答案形式 | 写入一页方案的项目 |
 | --- | --- | --- | --- |

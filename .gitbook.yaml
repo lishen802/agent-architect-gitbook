@@ -1,4 +1,23 @@
+# 发布渠道：仅 GitBook.com（Git Sync）。阅读顺序与收录页面以 SUMMARY.md 为准。
 root: ./
+
 structure:
   readme: README.md
   summary: SUMMARY.md
+
+# 2026-11 按新章号统一文件名。键为旧页面 URL 路径，值为相对 root 的新文件路径。
+redirects:
+  intro/determinism-vs-probabilistic: intro/reading-path.md
+  part-1/03-five-misconceptions: part-1/03-design-principles.md
+  part-1/design-handbook: part-1/reference-architecture.md
+  part-3/07-tool-engineering: part-2/07-tool-integration.md
+  part-3/08-context-engineering: part-2/08-context-engineering.md
+  part-3/09-hybrid-rag: part-2/09-rag-knowledge.md
+  part-2/04-react-loop: part-3/10-agent-loop.md
+  part-2/05-taskstate-runtime: part-3/11-task-state.md
+  part-2/06-durable-execution: part-3/12-durable-execution.md
+  part-4/13-multi-agent: part-3/13-multi-agent.md
+  part-4/10-eval-observability: part-5/20-eval-observability.md
+  part-4/11-guardrails-security: part-5/21-security-governance.md
+  part-4/12-gateway-cost: part-5/22-gateway-cost.md
+  part-5/14-sre-agent-evolution: part-6/23-sre-agent-evolution.md

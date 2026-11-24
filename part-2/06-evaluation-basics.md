@@ -33,7 +33,7 @@
 | 判定方法与证据 | 说明由谁判、凭什么判 | 引用程序检查，语义人工评审 |
 | 来源与维护记录 | 判断样例有效性 | 教学构造或已脱敏事件，记录修订 |
 
-模板见[评测样例模板](../templates/evaluation-case.md)。环境信息只保留必要内容，不能把生产凭证放进评测文件。
+模板见[评测样例模板](../appendix/templates/evaluation-case.md)。环境信息只保留必要内容，不能把生产凭证放进评测文件。
 
 下面是一条人为构造的样例摘要，不是已经测出的效果：
 
@@ -132,7 +132,7 @@ E2：09:58 完成发布。
 
 ### 第二步：围绕会改变处理方式的条件选题
 
-配套[任务集](../examples/evaluation-basics/cases.json)保存完整材料、输入版本、预期状态、必须满足项与允许变体。每题都有一条对应的[候选输出与参考判定](../examples/evaluation-basics/runs.json)。
+配套[任务集](https://github.com/lishen802/agent-architect-gitbook/blob/main/examples/evaluation-basics/cases.json)保存完整材料、输入版本、预期状态、必须满足项与允许变体。每题都有一条对应的[候选输出与参考判定](https://github.com/lishen802/agent-architect-gitbook/blob/main/examples/evaluation-basics/runs.json)。
 
 | 任务 | 输入中的关键条件 | 应怎样处理 | 构造的候选结果 |
 | --- | --- | --- | --- |
@@ -194,7 +194,7 @@ T06 没有报告，无法做报告契约和语义评分。这不意味着可以�
 
 ## 6.10 运行汇总，并检查分母
 
-配套目录提供一个只依赖 Python 标准库的[评测记录示例](../examples/evaluation-basics/README.md)。它不调用模型，不自动判断自然语言是否正确，也不代替第 5 章的 Go 校验器。它读取已构造的语义判定，执行一组明确标注范围的报告检查，再按规则汇总。
+配套目录提供一个只依赖 Python 标准库的[评测记录示例](https://github.com/lishen802/agent-architect-gitbook/blob/main/examples/evaluation-basics/README.md)。它不调用模型，不自动判断自然语言是否正确，也不代替第 5 章的 Go 校验器。它读取已构造的语义判定，执行一组明确标注范围的报告检查，再按规则汇总。
 
 从仓库根目录执行：
 
@@ -203,7 +203,7 @@ python3 -B -m unittest discover -s examples/evaluation-basics -v
 python3 -B examples/evaluation-basics/summarize.py
 ```
 
-本轮运行已得到以下计数，完整输出保存在[summary.json](../examples/evaluation-basics/summary.json)：
+本轮运行已得到以下计数，完整输出保存在[summary.json](https://github.com/lishen802/agent-architect-gitbook/blob/main/examples/evaluation-basics/summary.json)：
 
 | 项目 | 数量 | 口径 |
 | --- | --- | --- |

@@ -1,64 +1,78 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1100" viewBox="0 0 1400 1100" role="img" aria-labelledby="title desc">
-<title id="title">图 2-1 从需求到方案的分层选型图</title>
-<desc id="desc">先明确任务与基线，再比较控制方式；信息获取、授权和恢复分别决策，最后通过评测与预算实验验证。</desc>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker></defs>
-<rect width="1400" height="1100" fill="#f8fafc"/>
-<text x="50" y="52" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="600" fill="#172b4d">从需求到方案</text>
-<text x="50" y="84" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="19" font-weight="normal" fill="#475569">图 2-1｜比较控制方式，再独立决定信息、授权与恢复。箭头表示设计顺序，不表示自动升级。</text>
-<rect x="50" y="114" width="1300" height="105" rx="12" fill="#eaf2ff" stroke="#cbd5e1" stroke-width="1.5"/>
-<text x="70" y="147" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d">1  明确任务与验收</text>
-<text x="70" y="180" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">输入、交付物、使用者、错误后果、无法判断时的出口；写出需要确认的业务前提。</text>
-<path d="M700,219 L700,242" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-<rect x="50" y="246" width="1300" height="105" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
-<text x="70" y="279" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d">2  先比较无需模型的基线</text>
-<text x="70" y="312" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">规则、数据库查询或普通搜索能否满足目标？能则保留为方案；不足时明确模型要补哪一项能力。</text>
-<path d="M700,351 L700,375" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-<text x="50" y="406" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="600" fill="#172b4d">3  比较候选控制方式：可以组合，按任务证据选择</text>
-<rect x="50" y="425" width="310" height="150" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
-<text x="70" y="458" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d">规则程序</text>
-<text x="70" y="491" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">规则可明确表达</text>
-<text x="70" y="520" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">适合校验、计算与提交</text>
-<text x="70" y="549" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">仍需处理依赖和异常</text>
-<rect x="380" y="425" width="310" height="150" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
-<text x="400" y="458" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d">受控模型调用</text>
-<text x="400" y="491" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">材料已给定</text>
-<text x="400" y="520" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">需要理解、抽取或生成</text>
-<text x="400" y="549" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">应用决定下一阶段</text>
-<rect x="710" y="425" width="310" height="150" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
-<text x="730" y="458" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d">预定义工作流</text>
-<text x="730" y="491" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">阶段和转移可描述</text>
-<text x="730" y="520" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">可含模型、循环与等待</text>
-<text x="730" y="549" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">恢复取决于具体实现</text>
-<rect x="1040" y="425" width="310" height="150" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
-<text x="1060" y="458" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d">受约束的智能体</text>
-<text x="1060" y="491" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">行动依赖新证据</text>
-<text x="1060" y="520" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">需反馈、预算与退出</text>
-<text x="1060" y="549" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">仅开放必要的动态选择</text>
-<path d="M205,575 L205,611" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-<path d="M535,575 L535,611" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-<path d="M865,575 L865,611" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-<path d="M1195,575 L1195,611" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-<text x="50" y="645" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="600" fill="#172b4d">4  独立补齐三个维度：任一种控制方式都可能需要这些设计</text>
-<rect x="50" y="665" width="420" height="160" rx="12" fill="#f0fdfa" stroke="#cbd5e1" stroke-width="1.5"/>
-<text x="70" y="698" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d">信息获取</text>
-<text x="70" y="731" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">给定材料 / 权威业务查询 / 文档检索</text>
-<text x="70" y="760" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">说明权限、来源、时效与缺口</text>
-<text x="70" y="789" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">有检索不等于有智能体</text>
-<rect x="490" y="665" width="420" height="160" rx="12" fill="#f0fdfa" stroke="#cbd5e1" stroke-width="1.5"/>
-<text x="510" y="698" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d">动作与授权</text>
-<text x="510" y="731" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">只读 / 建议 / 受控写操作</text>
-<text x="510" y="760" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">按后果与业务规则决定是否审批</text>
-<text x="510" y="789" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">只读也需要数据访问控制</text>
-<rect x="930" y="665" width="420" height="160" rx="12" fill="#f0fdfa" stroke="#cbd5e1" stroke-width="1.5"/>
-<text x="950" y="698" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d">状态与恢复</text>
-<text x="950" y="731" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">任务事实、并发与操作标识</text>
-<text x="950" y="760" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">超时后核对结果，不盲目重试</text>
-<text x="950" y="789" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">保留取消、失败与人工接手路径</text>
-<path d="M700,825 L700,850" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-<rect x="50" y="858" width="1300" height="120" rx="12" fill="#fff7ed" stroke="#cbd5e1" stroke-width="1.5"/>
-<text x="70" y="891" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#172b4d">5  形成一页方案，用最小实验验证</text>
-<text x="70" y="924" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">列出候选与不选理由、任务集与判对错方法、调用与人工成本、延迟区间、尚未验证的假设。</text>
-<text x="70" y="953" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="normal" fill="#334155">若质量或预算不满足：回到对应决策修正；不默认增加 Agent、检索或协作角色。</text>
-<text x="50" y="1020" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="19" font-weight="normal" fill="#475569">阅读提示：本图是本书的设计检查顺序，不是统计选型器，也不承诺某类架构必然更优。</text>
-<text x="50" y="1055" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="19" font-weight="normal" fill="#475569">需要检索、需要审批、需要自主决策，是不同问题；按同一任务的验收结果比较方案。</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="980" viewBox="0 0 1000 980" role="img" aria-labelledby="t d">
+<title id="t">图 2-1 从需求到方案的分层选型图</title><desc id="d">先明确任务与验收、比较无需模型的基线，再选择控制方式；信息获取、动作与授权、状态与恢复分别决定；最后形成一页方案并用最小实验验证，不满足时回到对应决策。</desc>
+<defs><filter id="sh" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#0f172a" flood-opacity="0.08"/></filter><marker id="ah-main" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#334155"/></marker><marker id="ah-flow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#64748b"/></marker><marker id="ah-loop" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#64748b"/></marker><marker id="ah-fail" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#dc2626"/></marker><marker id="ah-ok" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#0f766e"/></marker><marker id="ah-model" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#d97706"/></marker></defs>
+<rect x="0.5" y="0.5" width="999" height="979" rx="18" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="36.0" y="44.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#475569" text-anchor="start">图 2-1｜从需求到方案的分层选型图</text>
+<rect x="70" y="76" width="900" height="86.2" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#sh)"/>
+<circle cx="101.0" cy="104.3" r="13" fill="#334155"/>
+<text x="101.0" y="109.9" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+<text x="124.0" y="110.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="19" font-weight="600" fill="#1e293b" text-anchor="start">明确任务与验收</text>
+<text x="124.0" y="140.1" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">使用者、交付物、错误后果，以及无法判断时的出口</text>
+<rect x="70" y="198.2" width="900" height="86.2" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#sh)"/>
+<circle cx="101.0" cy="226.5" r="13" fill="#334155"/>
+<text x="101.0" y="232.1" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+<text x="124.0" y="232.2" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="19" font-weight="600" fill="#1e293b" text-anchor="start">先比较无需模型的基线</text>
+<text x="124.0" y="262.3" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">规则、查询、搜索或模板能否满足目标？不足时写明模型要补哪一项能力</text>
+<path d="M520.0,162.2 L520.0,194.2" stroke="#334155" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-main)"/>
+<rect x="70" y="340.4" width="900" height="170" rx="16" fill="#f1f5f9" fill-opacity="0.55" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="8 6"/>
+<rect x="86" y="326.4" width="398" height="28" rx="14" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="98.0" y="346.4" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#475569" text-anchor="start">③ 选择控制方式：可以组合，按任务证据选择</text>
+<rect x="90" y="374.4" width="200" height="111.7" rx="12" fill="#eaf2ff" stroke="#60a5fa" stroke-width="1.5" filter="url(#sh)"/>
+<text x="190.0" y="408.4" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="19" font-weight="600" fill="#1e293b" text-anchor="middle">规则程序</text>
+<text x="190.0" y="438.5" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">规则可明确表达</text>
+<text x="190.0" y="464.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">校验、计算、提交</text>
+<rect x="310" y="374.4" width="200" height="111.7" rx="12" fill="#fff4e5" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+<text x="410.0" y="408.4" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="19" font-weight="600" fill="#1e293b" text-anchor="middle">受控模型调用</text>
+<text x="410.0" y="438.5" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">材料已给定</text>
+<text x="410.0" y="464.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">理解、抽取或生成</text>
+<rect x="530" y="374.4" width="200" height="111.7" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#sh)"/>
+<text x="630.0" y="408.4" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="19" font-weight="600" fill="#1e293b" text-anchor="middle">预定义工作流</text>
+<text x="630.0" y="438.5" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">阶段与转移可描述</text>
+<text x="630.0" y="464.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">可含模型与等待</text>
+<rect x="750" y="374.4" width="200" height="111.7" rx="12" fill="#fff4e5" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+<text x="850.0" y="408.4" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="19" font-weight="600" fill="#1e293b" text-anchor="middle">受约束的智能体</text>
+<text x="850.0" y="438.5" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">下一步依赖新证据</text>
+<text x="850.0" y="464.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">需反馈、预算与退出</text>
+<path d="M520.0,284.4 L520.0,322.4" stroke="#334155" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-main)"/>
+<rect x="70" y="560.4" width="900" height="170" rx="16" fill="#f1f5f9" fill-opacity="0.55" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="8 6"/>
+<rect x="86" y="546.4" width="435" height="28" rx="14" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="98.0" y="566.4" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#475569" text-anchor="start">④ 独立补齐三个维度：任一种控制方式都可能需要</text>
+<rect x="90" y="594.4" width="270" height="111.7" rx="12" fill="#e6f7f4" stroke="#2dd4bf" stroke-width="1.5" filter="url(#sh)"/>
+<text x="225.0" y="628.4" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="19" font-weight="600" fill="#1e293b" text-anchor="middle">信息获取</text>
+<text x="225.0" y="658.5" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">给定材料 / 业务查询 / 检索</text>
+<text x="225.0" y="684.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">权限、来源、时效与缺口</text>
+<rect x="385" y="594.4" width="270" height="111.7" rx="12" fill="#eaf2ff" stroke="#60a5fa" stroke-width="1.5" filter="url(#sh)"/>
+<text x="520.0" y="628.4" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="19" font-weight="600" fill="#1e293b" text-anchor="middle">动作与授权</text>
+<text x="520.0" y="658.5" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">只读 / 建议 / 受控写操作</text>
+<text x="520.0" y="684.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">按后果决定是否审批</text>
+<rect x="680" y="594.4" width="270" height="111.7" rx="12" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5" filter="url(#sh)"/>
+<text x="815.0" y="628.4" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="19" font-weight="600" fill="#1e293b" text-anchor="middle">状态与恢复</text>
+<text x="815.0" y="658.5" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">任务事实与操作标识</text>
+<text x="815.0" y="684.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">超时后先核对再重试</text>
+<path d="M520.0,510.4 L520.0,542.4" stroke="#334155" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-main)"/>
+<rect x="70" y="774.4" width="900" height="86.2" rx="12" fill="#ecfdf3" stroke="#4ade80" stroke-width="2.2" filter="url(#sh)"/>
+<circle cx="101.0" cy="802.8" r="13" fill="#15803d"/>
+<text x="101.0" y="808.4" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">5</text>
+<text x="124.0" y="808.4" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="19" font-weight="600" fill="#1e293b" text-anchor="start">形成一页方案，用最小实验验证</text>
+<text x="124.0" y="838.5" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">写明候选与不选理由、判定方法、成本与延迟假设、会推翻当前选择的结果</text>
+<path d="M520.0,730.4 L520.0,770.4" stroke="#334155" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-main)"/>
+<path d="M300.0,860.6 L300.0,884.6 Q300.0,894.6 290.0,894.6 L50.0,894.6 Q40.0,894.6 40.0,884.6 L40.0,655.4 Q40.0,645.4 50.0,645.4 L66.0,645.4" stroke="#64748b" stroke-width="2.0" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#ah-loop)"/>
+<rect x="407.5" y="884.5" width="305.0" height="24.6" rx="12.2" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<text x="560.0" y="900.6" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">质量或预算不满足：回到对应决策修正</text>
+<path d="M40,645.4 L40,425.4" stroke="#64748b" stroke-width="2" fill="none" stroke-dasharray="7 5"/>
+<path d="M40.0,425.4 L66.0,425.4" stroke="#64748b" stroke-width="2.0" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#ah-loop)"/>
+<rect x="40" y="931.6" width="22" height="16" rx="4" fill="#eaf2ff" stroke="#60a5fa" stroke-width="1.5"/>
+<text x="70.0" y="944.6" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">代码校验与策略</text>
+<rect x="209.0" y="931.6" width="22" height="16" rx="4" fill="#fff4e5" stroke="#f59e0b" stroke-width="1.5"/>
+<text x="239.0" y="944.6" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">模型</text>
+<rect x="293.0" y="931.6" width="22" height="16" rx="4" fill="#e6f7f4" stroke="#2dd4bf" stroke-width="1.5"/>
+<text x="323.0" y="944.6" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">外部能力与结果</text>
+<rect x="462.0" y="931.6" width="22" height="16" rx="4" fill="#ecfdf3" stroke="#4ade80" stroke-width="1.5"/>
+<text x="492.0" y="944.6" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">人工</text>
+<rect x="546.0" y="931.6" width="22" height="16" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="576.0" y="944.6" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">状态与存储</text>
+<path d="M681.0,939.6 L711.0,939.6" stroke="#334155" stroke-width="2.5" marker-end="url(#ah-main)"/>
+<text x="721.0" y="944.6" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">设计顺序</text>
+<path d="M809.0,939.6 L839.0,939.6" stroke="#64748b" stroke-width="2.0" stroke-dasharray="7 5" marker-end="url(#ah-loop)"/>
+<text x="849.0" y="944.6" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">回路</text>
 </svg>

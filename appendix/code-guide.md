@@ -4,9 +4,9 @@
 
 | 项目 | 对应章节 | 环境与核验记录 | 能支持的结论 |
 | --- | --- | --- | --- |
-| [告警助手](../examples/alert-assistant/README.md) | 第 4、5 章；第 6 章沿用任务背景 | Go 模块声明 1.22；2026-10-09 在 Go 1.27.1、macOS arm64 验证 | 本地保存响应的输入、输出与失败处理；未接入在线模型 |
-| [评测记录与汇总](../examples/evaluation-basics/README.md) | 第 6 章 | Python 标准库；2026-10-20 在 Python 3.12.3 核验 | 教学记录的契约检查与汇总；语义标签预先构造，未调用真实模型 |
-| [选型图 SVG 构建脚本](../assets/build-decision-map.py) | 第 2 章 | Python 标准库生成 SVG；图像需渲染复核 | 重建图 2-1，不承担自动架构选型 |
+| [告警助手](https://github.com/lishen802/agent-architect-gitbook/blob/main/examples/alert-assistant/README.md) | 第 4、5 章；第 6 章沿用任务背景 | Go 模块声明 1.22；2026-10-09 在 Go 1.27.1、macOS arm64 验证 | 本地保存响应的输入、输出与失败处理；未接入在线模型 |
+| [评测记录与汇总](https://github.com/lishen802/agent-architect-gitbook/blob/main/examples/evaluation-basics/README.md) | 第 6 章 | Python 标准库；2026-10-20 在 Python 3.12.3 核验 | 教学记录的契约检查与汇总；语义标签预先构造，未调用真实模型 |
+| [选型图 SVG 构建脚本](https://github.com/lishen802/agent-architect-gitbook/blob/main/assets/build-decision-map.py) | 第 2 章 | Python 标准库生成 SVG；图像需渲染复核 | 重建图 2-1，不承担自动架构选型 |
 | 具体模型与框架适配 | 后续补充 | 未选择和核验实现版本 | 不提供在线成功率、费用或性能结论 |
 
 从仓库根目录运行现有示例：

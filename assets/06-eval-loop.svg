@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-labelledby="t d">
+<title id="t">图 6-1 评测闭环</title><desc id="d">需求与验收规则、检查项与判定方法、任务集、候选结果、逐项判定、带分母的汇总、设计调整依次相连；设计调整后补题并重新运行全部任务，规则含糊时回到需求修订规则。</desc>
+<defs><filter id="sh" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#0f172a" flood-opacity="0.08"/></filter><marker id="ah-main" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#334155"/></marker><marker id="ah-flow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#64748b"/></marker><marker id="ah-loop" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#64748b"/></marker><marker id="ah-fail" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#dc2626"/></marker><marker id="ah-ok" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#0f766e"/></marker><marker id="ah-model" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#d97706"/></marker></defs>
+<rect x="0.5" y="0.5" width="999" height="699" rx="18" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="36.0" y="44.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#475569" text-anchor="start">图 6-1｜评测闭环</text>
+<rect x="375.0" y="102.0" width="250" height="88" rx="12" fill="#ecfdf3" stroke="#4ade80" stroke-width="1.5" filter="url(#sh)"/>
+<circle cx="406.0" cy="131.2" r="13" fill="#15803d"/>
+<text x="406.0" y="136.8" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+<text x="429.0" y="136.9" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="19" font-weight="600" fill="#1e293b" text-anchor="start">需求与验收规则</text>
+<text x="429.0" y="167.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">先写什么算通过</text>
+<rect x="633.0043892144498" y="185.58526398736117" width="250" height="88" rx="12" fill="#eaf2ff" stroke="#60a5fa" stroke-width="1.5" filter="url(#sh)"/>
+<circle cx="664.0" cy="214.8" r="13" fill="#1d4ed8"/>
+<text x="664.0" y="220.4" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+<text x="687.0" y="220.5" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="19" font-weight="600" fill="#1e293b" text-anchor="start">检查项与判定方法</text>
+<text x="687.0" y="250.5" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">程序 / 人工 / 模型辅助</text>
+<rect x="696.7262110200018" y="373.3996473383018" width="250" height="88" rx="12" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5" filter="url(#sh)"/>
+<circle cx="727.7" cy="402.6" r="13" fill="#475569"/>
+<text x="727.7" y="408.2" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+<text x="750.7" y="408.3" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="19" font-weight="600" fill="#1e293b" text-anchor="start">任务集</text>
+<text x="750.7" y="438.4" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">开发题与保留题分开</text>
+<rect x="518.1816339087943" y="524.015088674337" width="250" height="88" rx="12" fill="#fff4e5" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+<circle cx="549.2" cy="553.3" r="13" fill="#b45309"/>
+<text x="549.2" y="558.9" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">4</text>
+<text x="572.2" y="558.9" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="19" font-weight="600" fill="#1e293b" text-anchor="start">候选结果</text>
+<text x="572.2" y="589.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">保留每次试验与版本</text>
+<rect x="231.8183660912058" y="524.015088674337" width="250" height="88" rx="12" fill="#eaf2ff" stroke="#60a5fa" stroke-width="1.5" filter="url(#sh)"/>
+<circle cx="262.8" cy="553.3" r="13" fill="#1d4ed8"/>
+<text x="262.8" y="558.9" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">5</text>
+<text x="285.8" y="558.9" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="19" font-weight="600" fill="#1e293b" text-anchor="start">逐项判定</text>
+<text x="285.8" y="589.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">写明理由，允许待定</text>
+<rect x="53.27378897999819" y="373.39964733830175" width="250" height="88" rx="12" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5" filter="url(#sh)"/>
+<circle cx="84.3" cy="402.6" r="13" fill="#475569"/>
+<text x="84.3" y="408.2" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">6</text>
+<text x="107.3" y="408.3" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="19" font-weight="600" fill="#1e293b" text-anchor="start">带分母的汇总</text>
+<text x="107.3" y="438.4" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">对象与分母写清</text>
+<rect x="116.99561078555013" y="185.5852639873612" width="250" height="88" rx="12" fill="#ecfdf3" stroke="#4ade80" stroke-width="1.5" filter="url(#sh)"/>
+<circle cx="148.0" cy="214.8" r="13" fill="#15803d"/>
+<text x="148.0" y="220.4" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">7</text>
+<text x="171.0" y="220.5" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="19" font-weight="600" fill="#1e293b" text-anchor="start">设计调整</text>
+<text x="171.0" y="250.5" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">一次只改一处</text>
+<path d="M629.0,187.8 L625.0,186.5" stroke="#334155" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-main)"/>
+<path d="M774.3,277.6 L804.1,365.4" stroke="#334155" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-main)"/>
+<path d="M764.8,465.4 L704.8,516.0" stroke="#334155" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-main)"/>
+<path d="M514.2,568.0 L489.8,568.0" stroke="#334155" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-main)"/>
+<path d="M299.9,520.0 L239.9,469.4" stroke="#334155" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-main)"/>
+<path d="M194.6,369.4 L224.4,281.6" stroke="#334155" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-main)"/>
+<path d="M371.0,271.4 L688.7,374.3" stroke="#64748b" stroke-width="2.0" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#ah-loop)"/>
+<rect x="408.5" y="361.9" width="203.0" height="24.6" rx="12.2" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<text x="510.0" y="378.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">补题后重新运行全部任务</text>
+<path d="M242.0,181.6 L242.0,156.0 Q242.0,146.0 252.0,146.0 L367.0,146.0" stroke="#64748b" stroke-width="2.0" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#ah-loop)"/>
+<rect x="140.5" y="99.8" width="203.0" height="24.6" rx="12.2" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<text x="242.0" y="116.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">规则含糊：修订并升版本</text>
+<rect x="36" y="663" width="22" height="16" rx="4" fill="#ecfdf3" stroke="#4ade80" stroke-width="1.5"/>
+<text x="66.0" y="676.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">人工</text>
+<rect x="120.0" y="663" width="22" height="16" rx="4" fill="#eaf2ff" stroke="#60a5fa" stroke-width="1.5"/>
+<text x="150.0" y="676.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">代码校验与策略</text>
+<rect x="289.0" y="663" width="22" height="16" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="319.0" y="676.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">状态与存储</text>
+<rect x="424.0" y="663" width="22" height="16" rx="4" fill="#fff4e5" stroke="#f59e0b" stroke-width="1.5"/>
+<text x="454.0" y="676.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">模型</text>
+<path d="M508.0,671 L538.0,671" stroke="#334155" stroke-width="2.5" marker-end="url(#ah-main)"/>
+<text x="548.0" y="676.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">每轮顺序</text>
+<path d="M636.0,671 L666.0,671" stroke="#64748b" stroke-width="2.0" stroke-dasharray="7 5" marker-end="url(#ah-loop)"/>
+<text x="676.0" y="676.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">回路</text>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="640" viewBox="0 0 1000 640" role="img" aria-labelledby="t d">
+<title id="t">图 3-2 超时背后的时间差</title><desc id="d">应用发出创建工单请求，工单系统已经创建记录，响应在网络中丢失，应用只观察到超时；直接重试可能重复创建，直接判定失败会漏掉已建工单，应按操作标识查询后再决定。</desc>
+<defs><filter id="sh" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#0f172a" flood-opacity="0.08"/></filter><marker id="ah-main" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#334155"/></marker><marker id="ah-flow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#64748b"/></marker><marker id="ah-loop" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#64748b"/></marker><marker id="ah-fail" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#dc2626"/></marker><marker id="ah-ok" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#0f766e"/></marker><marker id="ah-model" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#d97706"/></marker></defs>
+<rect x="0.5" y="0.5" width="999" height="639" rx="18" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="36.0" y="44.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#475569" text-anchor="start">图 3-2｜超时背后的时间差</text>
+<rect x="30" y="80" width="940" height="92" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+<rect x="30" y="80" width="118" height="92" rx="12" fill="#f1f5f9" stroke="#e2e8f0"/>
+<text x="89.0" y="132.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#334155" text-anchor="middle">应用</text>
+<rect x="30" y="180" width="940" height="92" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+<rect x="30" y="180" width="118" height="92" rx="12" fill="#f1f5f9" stroke="#e2e8f0"/>
+<text x="89.0" y="232.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#334155" text-anchor="middle">网络</text>
+<rect x="30" y="280" width="940" height="92" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+<rect x="30" y="280" width="118" height="92" rx="12" fill="#f1f5f9" stroke="#e2e8f0"/>
+<text x="89.0" y="332.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#334155" text-anchor="middle">工单系统</text>
+<rect x="170" y="100" width="170" height="52" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#sh)"/>
+<text x="255.0" y="131.9" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="600" fill="#1e293b" text-anchor="middle">① 发出创建请求</text>
+<rect x="390" y="300" width="170" height="52" rx="12" fill="#e6f7f4" stroke="#2dd4bf" stroke-width="1.5" filter="url(#sh)"/>
+<text x="475.0" y="331.9" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="600" fill="#1e293b" text-anchor="middle">② 已创建记录</text>
+<rect x="600" y="200" width="150" height="52" rx="12" fill="#fef2f2" stroke="#f87171" stroke-width="1.5" filter="url(#sh)"/>
+<text x="675.0" y="231.9" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="600" fill="#1e293b" text-anchor="middle">③ 响应丢失</text>
+<rect x="790" y="100" width="160" height="52" rx="12" fill="#fef2f2" stroke="#f87171" stroke-width="1.5" filter="url(#sh)"/>
+<text x="870.0" y="131.9" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="600" fill="#1e293b" text-anchor="middle">④ 观察到超时</text>
+<path d="M255.0,152.0 L255.0,316.0 Q255.0,326.0 265.0,326.0 L386.0,326.0" stroke="#334155" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-main)"/>
+<path d="M560.0,326.0 L665.0,326.0 Q675.0,326.0 675.0,316.0 L675.0,256.0" stroke="#dc2626" stroke-width="2.0" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#ah-fail)"/>
+<path d="M750.0,226.0 L860.0,226.0 Q870.0,226.0 870.0,216.0 L870.0,156.0" stroke="#64748b" stroke-width="2.0" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#ah-loop)"/>
+<rect x="826.0" y="167.8" width="84.0" height="24.6" rx="12.2" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<text x="868.0" y="184.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">等待截止</text>
+<path d="M150.0,394.0 L960.0,394.0" stroke="#64748b" stroke-width="2.0" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-flow)"/>
+<text x="940.0" y="420.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="end">时间</text>
+<text x="36.0" y="460.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#334155" text-anchor="start">恢复时的三种做法</text>
+<rect x="30" y="480" width="296" height="86.2" rx="12" fill="#fef2f2" stroke="#f87171" stroke-width="1.5" filter="url(#sh)"/>
+<text x="178.0" y="514.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="19" font-weight="600" fill="#1e293b" text-anchor="middle">直接重试</text>
+<text x="178.0" y="544.1" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">工单可能被重复创建</text>
+<rect x="352" y="480" width="296" height="86.2" rx="12" fill="#fef2f2" stroke="#f87171" stroke-width="1.5" filter="url(#sh)"/>
+<text x="500.0" y="514.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="19" font-weight="600" fill="#1e293b" text-anchor="middle">直接判定失败</text>
+<text x="500.0" y="544.1" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">漏掉已经创建的工单</text>
+<rect x="674" y="480" width="296" height="86.2" rx="12" fill="#eaf2ff" stroke="#60a5fa" stroke-width="2.2" filter="url(#sh)"/>
+<text x="822.0" y="514.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="19" font-weight="600" fill="#1e293b" text-anchor="middle">按操作标识查询再决定</text>
+<text x="822.0" y="544.1" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">已创建 / 未创建 / 不可知</text>
+<rect x="36" y="609" width="22" height="16" rx="4" fill="#e6f7f4" stroke="#2dd4bf" stroke-width="1.5"/>
+<text x="66.0" y="622.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">外部能力与结果</text>
+<rect x="205.0" y="609" width="22" height="16" rx="4" fill="#eaf2ff" stroke="#60a5fa" stroke-width="1.5"/>
+<text x="235.0" y="622.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">代码校验与策略</text>
+<rect x="374.0" y="609" width="22" height="16" rx="4" fill="#fef2f2" stroke="#f87171" stroke-width="1.5"/>
+<text x="404.0" y="622.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">风险与失败</text>
+<path d="M509.0,617 L539.0,617" stroke="#334155" stroke-width="2.5" marker-end="url(#ah-main)"/>
+<text x="549.0" y="622.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">请求</text>
+<path d="M603.0,617 L633.0,617" stroke="#dc2626" stroke-width="2.0" stroke-dasharray="7 5" marker-end="url(#ah-fail)"/>
+<text x="643.0" y="622.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">响应丢失</text>
+</svg>

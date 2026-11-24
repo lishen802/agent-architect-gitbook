@@ -117,7 +117,7 @@ type AlertInput struct {
 
 上一章的 `Model` 接口在这里成为应用与生成组件之间的连接点。业务函数 `Analyze` 接收输入与模型实现，返回统一的结果对象。
 
-以下为流程节选，完整输入检查与错误分支见[配套源码](../examples/alert-assistant/main.go)：
+以下为流程节选，完整输入检查与错误分支见[配套源码](https://github.com/lishen802/agent-architect-gitbook/blob/main/examples/alert-assistant/main.go)：
 
 ```go
 callCtx, cancel := context.WithTimeout(ctx, 10*time.Second)
@@ -219,7 +219,7 @@ E1 和 E2 都存在，所以引用完整性检查可以通过。但“全部支�
 
 ## 5.6 运行配套示例
 
-[配套目录](../examples/alert-assistant/README.md)包含一个只使用 Go 标准库的程序、教学输入、保存的报告响应和关键行为测试。模块声明的语言版本为 Go 1.22，本轮实际验证环境为 Go 1.27.1、macOS arm64；未声称已在全部兼容版本与操作系统上验证。
+[配套目录](https://github.com/lishen802/agent-architect-gitbook/blob/main/examples/alert-assistant/README.md)包含一个只使用 Go 标准库的程序、教学输入、保存的报告响应和关键行为测试。模块声明的语言版本为 Go 1.22，本轮实际验证环境为 Go 1.27.1、macOS arm64；未声称已在全部兼容版本与操作系统上验证。
 
 在仓库根目录执行：
 

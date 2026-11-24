@@ -287,7 +287,7 @@ response, err := model.Generate(callCtx, request)
 
 本章于 2026 年 10 月 9 日核对了文中链接的官方资料。正文以通用设计为主，不绑定具体模型名称、价格或窗口大小；服务能力与参数以实际接入版本为准。
 
-下一章提供的[配套程序](../examples/alert-assistant/README.md)使用本地保存的响应，不调用在线模型服务。上文接口是应用内部契约，不能直接作为任何供应商的 HTTP 请求协议。
+下一章提供的[配套程序](https://github.com/lishen802/agent-architect-gitbook/blob/main/examples/alert-assistant/README.md)使用本地保存的响应，不调用在线模型服务。上文接口是应用内部契约，不能直接作为任何供应商的 HTTP 请求协议。
 
 ## 迁移练习
 

@@ -311,7 +311,7 @@ OWASP 在 2025 年 12 月发布的智能体应用十大风险中，把这类问�
 
 以上内容见 [OWASP Top 10 for Agentic Applications 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)。
 
-OWASP 对提示注入的总体判断是：由于模型工作方式的随机性，目前还不清楚是否存在万无一失的防范方法，只能降低影响。因此，设计目标是让污染难以写入、写入后影响有限、发现后可以清除。[LLM01:2025 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
+OWASP 对提示注入的总体判断是：由于模型工作方式的随机性，目前还不清楚是否存在万无一失的防范方法，只能降低影响。[LLM01:2025 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/) 因此，设计目标是让污染难以写入、写入后影响有限、发现后可以清除。
 
 ### 写入前系统校验
 
@@ -439,11 +439,11 @@ python3 -B -m unittest discover -s examples/context-memory -v
 python3 -B examples/context-memory/demo.py
 ```
 
-`demo.py` 对 14 条候选材料运行分配器，输出的就是图 8-1 与 8.3 节的清单：可用输入 24800，使用 16900，纳入 11 条，丢弃 3 条并写明原因。15 项测试覆盖以下行为：
+`demo.py` 对 14 条候选材料运行分配器，输出的就是图 8-1 与 8.3 节的清单：可用输入 24800，使用 16900，纳入 11 条，丢弃 3 条并写明原因。16 项测试覆盖以下行为：
 
 - **预算分配**：随机改变材料大小 200 次，预算从不超限、必需项始终在场；必需项放不下时返回待审且上下文为空。
 - **组装与隔离**：输入顺序打乱后清单不变；其他租户的材料在空间充足时也不进入。
-- **记忆写入**：模型推断只能进入待审；租户或用户范围（含处置经验跨用户）、来源与有效期不符时拒绝；服务事实只接受权威系统来源；指令样式内容进入待审。
+- **记忆写入**：模型推断只能进入待审；租户或用户范围（含处置经验跨用户）、来源与有效期不符时拒绝；偏好必须限定为当前用户，只写租户范围的偏好被拒绝；服务事实只接受权威系统来源；指令样式内容进入待审。
 - **读取与删除**：新版本替换旧版本，读取时过滤范围、状态与有效期；按用户删除全部版本。
 
 示例中的 Token 数是虚构的计数结果，`estimate_tokens` 只是粗略的本地估算，可能多算也可能少算，不是任何模型的分词器。示例也没有覆盖 8.5 节的三项规则：与权威系统冲突时标记待复核、未验证条目设较短有效期、处置经验在事故关闭后才确认。测试验证的是应用规则是否被遵守，模型在这些上下文上回答得好不好，仍要按 8.8 节评测。
@@ -471,7 +471,7 @@ python3 -B examples/context-memory/demo.py
 - [OpenAI Agents SDK：Sessions](https://openai.github.io/openai-agents-python/sessions/)、[LangGraph：Memory overview](https://docs.langchain.com/oss/python/langgraph/memory)、[Google ADK：Conversational context](https://google.github.io/adk-docs/sessions/)，用于说明三种框架的会话与长期记忆接口。框架更新频繁，接口名称以接入时的版本为准。
 - [OWASP Top 10 for Agentic Applications 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) 的 ASI06，以及 [OWASP LLM01:2025 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)，用于支持记忆污染的路径和缓解建议，以及“尚无万无一失的注入防范方法”。
 
-材料信封、三档预算、调用清单、可回溯摘要结构、记忆写入规则表和告警场景，均为本书的设计方法与教学构造，没有对应的实验结论。[配套示例](https://github.com/lishen802/agent-architect-gitbook/blob/main/examples/context-memory/README.md)于 2026 年 11 月 25 日在 Python 3.13.5 下运行，15 项测试通过；它不调用模型，不说明任何上下文策略的实际效果。
+材料信封、三档预算、调用清单、可回溯摘要结构、记忆写入规则表和告警场景，均为本书的设计方法与教学构造，没有对应的实验结论。[配套示例](https://github.com/lishen802/agent-architect-gitbook/blob/main/examples/context-memory/README.md)于 2026 年 11 月 25 日在 Python 3.13.5 下运行，16 项测试通过；它不调用模型，不说明任何上下文策略的实际效果。
 
 ## 迁移练习
 

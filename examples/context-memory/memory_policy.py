@@ -29,6 +29,8 @@ def check_write(candidate, ctx, known_refs):
         reasons.append('tenant_mismatch')
     if scope.get('user') is not None and scope.get('user') != ctx['user']:
         reasons.append('user_scope_mismatch')            # applies to every kind, not only preferences
+    elif kind == 'preference' and scope.get('user') != ctx['user']:
+        reasons.append('user_scope_mismatch')            # a preference must be scoped to the current user
     if not candidate['source_refs'] or any(r not in known_refs for r in candidate['source_refs']):
         reasons.append('unknown_source_ref')
     content = candidate['content']

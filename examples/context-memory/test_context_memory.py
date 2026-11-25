@@ -156,6 +156,16 @@ class MemoryPolicyTests(unittest.TestCase):
         self.assertEqual(delete_subject(store, 'team-payments', 'oncall-lin'), 2)
         self.assertEqual(select_for_context(store, CTX, NOW), [])
 
+    def test_preference_must_be_scoped_to_current_user_so_it_can_be_deleted(self):
+        decision, reasons = check_write(candidate(scope={'tenant': 'team-payments'}), CTX, self.refs)
+        self.assertEqual((decision, reasons), ('reject', ['user_scope_mismatch']))
+        store = []
+        decision, _ = check_write(candidate(), CTX, self.refs)
+        self.assertEqual(decision, 'accept')
+        apply_write(store, candidate(), decision, NOW)
+        self.assertEqual(delete_subject(store, 'team-payments', 'oncall-lin'), 1)
+        self.assertEqual(store, [])
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,0 +1,99 @@
+{
+  "status": "ready",
+  "reason": "ok",
+  "available_input": 24800,
+  "used_input": 16900,
+  "included": [
+    {
+      "id": "I1",
+      "kind": "instructions",
+      "tokens": 2200,
+      "source": "prompt:alert-report-v2",
+      "origin": "application"
+    },
+    {
+      "id": "T1",
+      "kind": "tools",
+      "tokens": 800,
+      "source": "tool-registry:v3",
+      "origin": "application"
+    },
+    {
+      "id": "S1",
+      "kind": "state",
+      "tokens": 600,
+      "source": "task:inv-0412",
+      "origin": "authoritative_system"
+    },
+    {
+      "id": "M1",
+      "kind": "memory",
+      "tokens": 700,
+      "source": "memory:service-dependency",
+      "origin": "human_confirmed"
+    },
+    {
+      "id": "M2",
+      "kind": "memory",
+      "tokens": 1200,
+      "source": "memory:incident-0917",
+      "origin": "human_confirmed"
+    },
+    {
+      "id": "E1",
+      "kind": "evidence",
+      "tokens": 900,
+      "source": "metrics-service",
+      "origin": "authoritative_system"
+    },
+    {
+      "id": "E2",
+      "kind": "evidence",
+      "tokens": 400,
+      "source": "release-service",
+      "origin": "authoritative_system"
+    },
+    {
+      "id": "E3",
+      "kind": "evidence",
+      "tokens": 1400,
+      "source": "log-service:aggregate",
+      "origin": "authoritative_system"
+    },
+    {
+      "id": "E4",
+      "kind": "evidence",
+      "tokens": 6000,
+      "source": "log-service:sample-a",
+      "origin": "authoritative_system"
+    },
+    {
+      "id": "H1",
+      "kind": "history",
+      "tokens": 2500,
+      "source": "session:recent-3-turns",
+      "origin": "user_statement"
+    },
+    {
+      "id": "Q1",
+      "kind": "question",
+      "tokens": 200,
+      "source": "user:oncall-lin",
+      "origin": "user_statement"
+    }
+  ],
+  "dropped": [
+    {
+      "id": "X1",
+      "reason": "tenant_mismatch"
+    },
+    {
+      "id": "H2",
+      "reason": "kind_cap"
+    },
+    {
+      "id": "E5",
+      "reason": "over_budget"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "note": "教学构造：告警助手第二轮追问时的候选材料。tokens 代表调用前按所选模型计数接口得到的数，此处为虚构的教学数字。",
+  "tenant": "team-payments",
+  "budget": {"window": 32000, "reserve_output": 4000, "margin_ratio": 0.1,
+             "kind_caps": {"history": 4000, "memory": 2500}},
+  "items": [
+    {"id": "I1", "kind": "instructions", "source": "prompt:alert-report-v2", "origin": "application", "tokens": 2200, "tenant": "team-payments"},
+    {"id": "T1", "kind": "tools", "source": "tool-registry:v3", "origin": "application", "tokens": 800, "tenant": "team-payments"},
+    {"id": "S1", "kind": "state", "source": "task:inv-0412", "origin": "authoritative_system", "tokens": 600, "tenant": "team-payments", "required": true},
+    {"id": "Q1", "kind": "question", "source": "user:oncall-lin", "origin": "user_statement", "tokens": 200, "tenant": "team-payments", "required": true},
+    {"id": "E1", "kind": "evidence", "source": "metrics-service", "origin": "authoritative_system", "tokens": 900, "tenant": "team-payments", "required": true, "seq": 1},
+    {"id": "E2", "kind": "evidence", "source": "release-service", "origin": "authoritative_system", "tokens": 400, "tenant": "team-payments", "required": true, "seq": 2},
+    {"id": "E3", "kind": "evidence", "source": "log-service:aggregate", "origin": "authoritative_system", "tokens": 1400, "tenant": "team-payments", "required": true, "seq": 3},
+    {"id": "E4", "kind": "evidence", "source": "log-service:sample-a", "origin": "authoritative_system", "tokens": 6000, "tenant": "team-payments", "priority": 2, "seq": 4},
+    {"id": "E5", "kind": "evidence", "source": "log-service:sample-b", "origin": "authoritative_system", "tokens": 9000, "tenant": "team-payments", "priority": 4, "seq": 5},
+    {"id": "H1", "kind": "history", "source": "session:recent-3-turns", "origin": "user_statement", "tokens": 2500, "tenant": "team-payments", "priority": 1, "seq": 2},
+    {"id": "H2", "kind": "history", "source": "session:summary-v1", "origin": "model_inference", "tokens": 1800, "tenant": "team-payments", "priority": 3, "seq": 1},
+    {"id": "M1", "kind": "memory", "source": "memory:service-dependency", "origin": "human_confirmed", "tokens": 700, "tenant": "team-payments", "priority": 1, "seq": 1},
+    {"id": "M2", "kind": "memory", "source": "memory:incident-0917", "origin": "human_confirmed", "tokens": 1200, "tenant": "team-payments", "priority": 2, "seq": 2},
+    {"id": "X1", "kind": "memory", "source": "memory:incident-other", "origin": "human_confirmed", "tokens": 500, "tenant": "team-ledger", "priority": 1, "seq": 3}
+  ]
+}

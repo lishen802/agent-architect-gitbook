@@ -27,13 +27,15 @@ def check_write(candidate, ctx, known_refs):
         return 'reject', ['unknown_kind_or_origin']
     if scope.get('tenant') != ctx['tenant']:
         reasons.append('tenant_mismatch')
-    if kind == 'preference' and scope.get('user') != ctx['user']:
-        reasons.append('user_scope_mismatch')
+    if scope.get('user') is not None and scope.get('user') != ctx['user']:
+        reasons.append('user_scope_mismatch')            # applies to every kind, not only preferences
     if not candidate['source_refs'] or any(r not in known_refs for r in candidate['source_refs']):
         reasons.append('unknown_source_ref')
     content = candidate['content']
     if not content.strip() or len(content) > MAX_CHARS:
         reasons.append('content_size')
+    if kind == 'service_fact' and origin != 'authoritative_system':
+        reasons.append('service_fact_not_authoritative')  # read the authoritative system live instead
     if kind == 'service_fact' and not candidate.get('valid_until'):
         reasons.append('missing_valid_until')
     if reasons:

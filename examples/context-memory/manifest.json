@@ -29,8 +29,8 @@
       "id": "M1",
       "kind": "memory",
       "tokens": 700,
-      "source": "memory:service-dependency",
-      "origin": "human_confirmed"
+      "source": "memory:report-style",
+      "origin": "user_statement"
     },
     {
       "id": "M2",

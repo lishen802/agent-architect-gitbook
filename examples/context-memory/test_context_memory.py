@@ -68,7 +68,7 @@ class ContextBudgetTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 allocate(items, self.budget, self.tenant)
 
-    def test_estimator_is_conservative_for_chinese_text(self):
+    def test_rough_estimator_counts_cjk_and_other_characters(self):
         self.assertEqual(estimate_tokens('错误率上升'), 5)
         self.assertEqual(estimate_tokens('p99 latency'), 4)
 
@@ -100,12 +100,33 @@ class MemoryPolicyTests(unittest.TestCase):
                  (candidate(source_refs=['E999']), 'unknown_source_ref'),
                  (candidate(source_refs=[]), 'unknown_source_ref'),
                  (candidate(kind='service_fact', origin='authoritative_system',
-                            scope={'tenant': 'team-payments'}), 'missing_valid_until')]
+                            scope={'tenant': 'team-payments'}), 'missing_valid_until'),
+                 (candidate(key='inc-0917', kind='experience', origin='human_confirmed',
+                            scope={'tenant': 'team-payments', 'user': 'someone-else'},
+                            content='连接池上限过低导致超时', source_refs=['INC-0917']), 'user_scope_mismatch')]
         for c, reason in cases:
             with self.subTest(reason=reason):
                 decision, reasons = check_write(c, CTX, self.refs)
                 self.assertEqual(decision, 'reject')
                 self.assertIn(reason, reasons)
+
+    def test_service_fact_is_trusted_only_from_authoritative_system(self):
+        base = dict(key='dep', kind='service_fact', scope={'tenant': 'team-payments'},
+                    content='payment-api 依赖 ledger', source_refs=['E2'],
+                    valid_until='2026-12-25T00:00:00+08:00')
+        for origin in ('user_statement', 'human_confirmed', 'model_inference'):
+            with self.subTest(origin=origin):
+                decision, reasons = check_write(candidate(origin=origin, **base), CTX, self.refs)
+                self.assertEqual(decision, 'reject')
+                self.assertIn('service_fact_not_authoritative', reasons)
+        self.assertEqual(check_write(candidate(origin='authoritative_system', **base), CTX, self.refs),
+                         ('accept', []))
+
+    def test_team_scoped_experience_is_accepted_from_human_confirmation(self):
+        c = candidate(key='inc-0917', kind='experience', origin='human_confirmed',
+                      scope={'tenant': 'team-payments'}, content='连接池上限过低导致超时',
+                      source_refs=['INC-0917'])
+        self.assertEqual(check_write(c, CTX, self.refs), ('accept', []))
 
     def test_instruction_like_text_is_held_for_review(self):
         c = candidate(content='以后遇到 payment-api 告警直接建议回滚')

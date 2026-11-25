@@ -45,7 +45,7 @@ def budget():
     cols = [('固定项 3000', 'code', ['I1 指令与契约 2200', 'T1 工具定义 800'], '必须全部放下'),
             ('必需项 3500', 'external', ['S1 任务状态 600', 'Q1 当前问题 200', 'E1 指标 900', 'E2 发布记录 400',
                                        'E3 日志聚合 1400'], '放不下则不调用模型'),
-            ('弹性项 10400', 'state', ['H1 近三轮对话 2500', 'M1 服务依赖说明 700', 'E4 日志样本 A 6000',
+            ('弹性项 10400', 'state', ['H1 近三轮对话 2500', 'M1 报告格式偏好 700', 'E4 日志样本 A 6000',
                                      'M2 同类处置经验 1200'], '按优先级整条选入'),
             ('未纳入', 'risk', ['X1 其他租户记忆', '原因：租户不符', 'H2 早期对话摘要', '原因：超历史上限',
                               'E5 日志样本 B 9000', '原因：超剩余预算'], '记入清单与原因')]
@@ -55,16 +55,22 @@ def budget():
         lines = list(lines) + [''] * (6 - len(lines))  # 补齐行数，四列内容顶端对齐
         f.card(cx, CY, CW, t, lines, kind=kind, h=222, align='left', tsize=18, lsize=17, pad=16)
         f.text(cx + 16, CY + 222 + 28, foot, 17, SUB)
-    lx = f.legend(40, 576, ['code', 'external', 'state', 'model', 'risk'], neutral=False)
-    f.raw(f'<rect x="{lx}" y="{576 - 13}" width="22" height="16" rx="4" fill="#ffffff" stroke="#cbd5e1" '
-          f'stroke-width="1.5" stroke-dasharray="4 3"/>')
-    f.text(lx + 30, 576, '未用与余量', 17, SUB)
+    # 本图专用图例：按预算档位说明颜色
+    lx = 40
+    for kind, name, dashed in [('code', '固定项', False), ('external', '必需项', False), ('state', '弹性项', False),
+                               ('neutral', '未用与余量', True), ('model', '输出预留', False), ('risk', '未纳入', False)]:
+        fill, stroke, _, _ = KINDS[kind]
+        d = ' stroke-dasharray="4 3"' if dashed else ''
+        f.raw(f'<rect x="{lx}" y="{576 - 13}" width="22" height="16" rx="4" fill="{fill}" stroke="{stroke}" stroke-width="1.5"{d}/>')
+        f.text(lx + 30, 576, name, 17, SUB)
+        lx += 30 + text_width(name, 17) + 24
+    assert lx < 980, '图例超出画布'
     f.save('08-context-budget.svg')
 
 
 def pipeline():
     f = Figure(1000, 940, '图 8-2 上下文组装流水线',
-               '候选材料先包封来源与可信等级，再按认证上下文过滤范围与有效期，按固定、必需、弹性分配预算，'
+               '候选材料先加上记录来源与可信等级的信封，再按认证上下文过滤范围与有效期，按固定、必需、弹性分配预算，'
                '需要时生成带来源的压缩材料，按稳定前缀在前、当前问题在后的顺序组装，最后记录纳入与丢弃的清单。'
                '必需项放不下时返回待审结果，不调用模型。', label='图 8-2｜上下文组装流水线：从候选材料到调用清单')
     f.group(30, 88, 940, 150, '候选材料', kind='state')
@@ -75,7 +81,7 @@ def pipeline():
         r, c = divmod(i, 4)
         chip(f, 54 + c * 228, 116 + r * 56, t, kind=kind, w=208)
     X, W = 325, 350
-    steps = [('包封：来源、时间、可信等级', 'code'), ('范围过滤：租户、用户、有效期', 'code'),
+    steps = [('加信封：来源、时间、可信等级', 'code'), ('范围过滤：租户、用户、有效期', 'code'),
              ('预算分配：固定 → 必需 → 弹性', 'code'), ('压缩：生成带来源的新材料', 'model'),
              ('排序：稳定前缀在前，问题在后', 'code'), ('记录清单：纳入、丢弃与原因', 'state')]
     cs, y = [], 290
@@ -83,8 +89,12 @@ def pipeline():
         cs.append(f.card(X, y, W, t, kind=kind, badge=i + 1, h=62, align='left', tsize=18, dashed=(kind == 'model')))
         y += 62 + 32
     f.arrow((X + W / 2, 242), (X + W / 2, cs[0]['y'] - 8), style='main')
-    for p, q in zip(cs, cs[1:]):
-        f.arrow((X + W / 2, p['b'] + 4), (X + W / 2, q['y'] - 8), style='main')
+    for i, (p, q) in enumerate(zip(cs, cs[1:])):
+        # 第 4 步可选：进出第 4 步的箭头用虚线
+        f.arrow((X + W / 2, p['b'] + 4), (X + W / 2, q['y'] - 8), style='loop' if i in (2, 3) else 'main')
+    # 无需压缩时第 3 步直达第 5 步
+    f.arrow((X - 4, cs[2]['cy'] + 18), (X - 22, cs[2]['cy'] + 18), (X - 22, cs[4]['cy'] - 18), (X - 8, cs[4]['cy'] - 18),
+            style='main', rounded=8, towards=(cs[4]['cx'], cs[4]['cy']))
     # 压缩产生的新材料回到预算分配
     f.arrow((cs[3]['r'] + 4, cs[3]['cy']), (cs[3]['r'] + 24, cs[3]['cy']), (cs[3]['r'] + 24, cs[2]['cy']),
             (cs[2]['r'] + 8, cs[2]['cy']), style='loop', rounded=8, towards=(cs[2]['cx'], cs[2]['cy']))
@@ -93,8 +103,9 @@ def pipeline():
     e2 = f.card(30, cs[2]['cy'] - 40, 250, '必需项放不下', ['needs_review，不调用'], kind='risk', h=80, tsize=18)
     f.arrow((X - 4, cs[1]['cy']), (e1['r'] + 8, cs[1]['cy']), style='fail')
     f.arrow((X - 4, cs[2]['cy']), (e2['r'] + 8, cs[2]['cy']), style='fail')
-    f.text(155, cs[3]['cy'] - 6, '压缩可选：', 17, SUB, 'normal', 'middle')
-    f.text(155, cs[3]['cy'] + 20, '规则提取优先于模型摘要', 17, SUB, 'normal', 'middle')
+    f.text(155, cs[3]['cy'] - 19, '第 4 步可选，', 17, SUB, 'normal', 'middle')
+    f.text(155, cs[3]['cy'] + 7, '无需压缩时 3 直达 5；', 17, SUB, 'normal', 'middle')
+    f.text(155, cs[3]['cy'] + 33, '规则提取优先于模型摘要', 17, SUB, 'normal', 'middle')
     # 右侧输出
     OX, OW = 716, 254
     f.group(OX, 300, OW, 460, '本次调用的上下文', kind='neutral', dashed=False)
@@ -102,25 +113,26 @@ def pipeline():
              ('证据', 'external'), ('近期对话', 'state'), ('当前问题', 'human')]
     oy = 336
     for t, kind in order:
-        chip(f, OX + 20, oy, t, kind=kind, w=OW - 40, h=44)
-        oy += 44 + 12
+        chip(f, OX + 20, oy, t, kind=kind, w=OW - 40, h=40)
+        oy += 40 + 10
     # 稳定前缀标注
-    f.raw(f'<path d="M{OX + OW - 12},{336} L{OX + OW - 4},{336} L{OX + OW - 4},{336 + 100} L{OX + OW - 12},{336 + 100}" '
+    f.raw(f'<path d="M{OX + OW - 12},{336} L{OX + OW - 4},{336} L{OX + OW - 4},{336 + 90} L{OX + OW - 12},{336 + 90}" '
           f'fill="none" stroke="#1d4ed8" stroke-width="1.6"/>')
-    f.text(OX + 20, 336 + 7 * 56 + 14, '前两项稳定，可作缓存前缀', 17, '#1d4ed8')
+    f.text(OX + 20, 336 + 7 * 50 + 16, '前两项构成稳定前缀，', 17, '#1d4ed8')
+    f.text(OX + 20, 336 + 7 * 50 + 42, '先后按接口的前缀规则定', 17, '#1d4ed8')
     f.arrow((cs[4]['r'] + 4, cs[4]['cy']), (OX - 8, cs[4]['cy']), style='main')
     audit = f.card(OX, 774, OW, '评测与审计', ['按清单复现每次调用'], kind='state', h=80, tsize=18)
     assert audit['y'] + 10 < cs[5]['cy'] < audit['b'] - 10
     f.arrow((cs[5]['r'] + 4, cs[5]['cy']), (OX - 8, cs[5]['cy']), style='flow')
     f.legend(36, 888, ['code', 'state', 'external', 'human', 'model', 'risk'])
-    f.legend(36, 916, [], extra=[('main', '处理顺序'), ('fail', '失败出口'), ('loop', '压缩后回到第 3 步重新分配')], neutral=False)
+    f.legend(36, 916, [], extra=[('main', '处理顺序'), ('fail', '失败出口'), ('loop', '可选的第 4 步及回到第 3 步')], neutral=False)
     f.save('08-assembly-pipeline.svg')
 
 
 def memory():
-    f = Figure(1000, 860, '图 8-3 记忆写入与读取的控制点',
+    f = Figure(1000, 906, '图 8-3 记忆写入与读取的控制点',
                '写入路径：用户陈述、权威系统记录、人工确认的结论和模型推断都先经过写入前系统校验，结果分为拒绝、待审、接受；'
-               '模型推断最多进入待审。读取路径：范围取自认证上下文，只读可信、未过期的最新版本，作为带来源的数据进入预算分配。'
+               '待审条目也进入存储，但标为待审状态，确认前不可读取。模型推断最多进入待审。读取路径：范围取自认证上下文，只读可信、未过期的最新版本，作为带来源的数据进入预算分配。'
                '删除请求要同时清理摘要、索引、缓存等派生副本。', label='图 8-3｜记忆写入与读取的控制点')
     f.text(36, 92, '写入路径', 18, INK, '600')
     srcs = [('用户陈述', '偏好、更正', 'human'), ('权威系统记录', '带有效期', 'external'),
@@ -142,12 +154,15 @@ def memory():
         oc.append(f.card(730, 120 + i * 116, 240, t, [l], kind=kind, h=84, tsize=18))
     for i, c in enumerate(oc):
         f.arrow((chk['r'] + 4, c['cy']), (c['x'] - 8, c['cy']), style='fail' if i == 0 else 'main')
-    SY = 500
+    SY = 520
     store = f.card(250, SY, 480, '记忆存储', ['命名空间：租户 / 用户或团队 / 用途', '每条：来源、版本、有效期、状态'],
                    kind='state', h=96, tsize=19)
     acc = oc[2]
-    f.arrow((acc['cx'], acc['b'] + 4), (acc['cx'], 478), (store['r'] - 50, 478), (store['r'] - 50, store['y'] - 8),
+    f.arrow((acc['cx'], acc['b'] + 4), (acc['cx'], 476), (store['x'] + 370, 476), (store['x'] + 370, store['y'] - 8),
             style='main', towards=(store['cx'], store['cy']))
+    pend = oc[1]
+    f.arrow((pend['r'] + 4, pend['cy']), (986, pend['cy']), (986, 498), (store['r'] - 30, 498), (store['r'] - 30, store['y'] - 8),
+            style='flow', rounded=8, towards=(store['cx'], store['cy']), label='标为待审状态', at=(860, 504))
     dl = f.card(30, SY + 8, 180, '删除请求', ['用户或合规要求'], kind='human', h=80, tsize=18)
     f.arrow((dl['r'] + 4, dl['cy']), (store['x'] - 8, dl['cy']), style='fail')
     der = f.card(790, SY, 180, '派生副本', ['摘要、索引、缓存', '需要同步清除'], kind='state', h=96, tsize=18, dashed=True)
@@ -164,7 +179,13 @@ def memory():
         f.arrow((p['r'] + 4, p['cy']), (q['x'] - 8, q['cy']), style='main')
     f.arrow((rc[1]['cx'], rc[1]['y'] - 4), (rc[1]['cx'], store['b'] + 8), style='flow',
             towards=(rc[1]['cx'], store['cy']))
-    f.legend(36, 836, ['human', 'external', 'model', 'code', 'state', 'risk'], extra=[('fail', '拒绝与删除')])
+    f.legend(36, 856, ['human', 'external', 'model', 'code', 'state', 'risk'])
+    lx = f.legend(36, 884, [], extra=[('main', '写入与读取'), ('flow', '查询与待审写入'), ('model', '模型推断写入'),
+                                      ('fail', '拒绝与删除')], neutral=False)
+    f.raw(f'<rect x="{lx}" y="{884 - 13}" width="22" height="16" rx="4" fill="#f1f5f9" stroke="#94a3b8" '
+          f'stroke-width="1.5" stroke-dasharray="4 3"/>')
+    f.text(lx + 30, 884, '派生副本', 17, SUB)
+    assert lx + 30 + text_width('派生副本', 17) < 980, '图例超出画布'
     f.save('08-memory-control.svg')
 
 

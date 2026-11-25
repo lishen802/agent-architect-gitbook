@@ -1,19 +1,22 @@
 """Teaching example for chapter 8: allocate a context budget and record a manifest.
 
 Token counts are taken from each item's ``tokens`` field, standing in for a provider's
-token counting API. ``estimate_tokens`` is a deliberately conservative fallback for
-local experiments only; it is not any model's tokenizer.
+token counting API. ``estimate_tokens`` is a rough fallback for local experiments
+only; it is not any model's tokenizer and can under- or over-count.
 """
 from dataclasses import dataclass, field
 import math
 
-# Assembly order: stable prefix first, current question last.
+# Assembly order: stable prefix first, current question last. Instructions and tool
+# definitions together form the stable prefix; their relative order is decided by the
+# provider's prefix rules (e.g. Anthropic computes cache prefixes as tools -> system ->
+# messages), which are independent of the field order written in the request JSON.
 ORDER = ('instructions', 'tools', 'state', 'memory', 'evidence', 'history', 'question')
 FIXED_KINDS = ('instructions', 'tools')
 
 
 def estimate_tokens(text):
-    """Conservative local estimate: one token per CJK character, one per 3 other characters."""
+    """Rough local estimate: one token per CJK character, one per 3 other characters."""
     cjk = sum(1 for c in text if '\u3400' <= c <= '\u9fff' or '\uf900' <= c <= '\ufaff')
     return cjk + math.ceil((len(text) - cjk) / 3)
 

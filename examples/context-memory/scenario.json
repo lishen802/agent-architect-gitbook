@@ -15,7 +15,7 @@
     {"id": "E5", "kind": "evidence", "source": "log-service:sample-b", "origin": "authoritative_system", "tokens": 9000, "tenant": "team-payments", "priority": 4, "seq": 5},
     {"id": "H1", "kind": "history", "source": "session:recent-3-turns", "origin": "user_statement", "tokens": 2500, "tenant": "team-payments", "priority": 1, "seq": 2},
     {"id": "H2", "kind": "history", "source": "session:summary-v1", "origin": "model_inference", "tokens": 1800, "tenant": "team-payments", "priority": 3, "seq": 1},
-    {"id": "M1", "kind": "memory", "source": "memory:service-dependency", "origin": "human_confirmed", "tokens": 700, "tenant": "team-payments", "priority": 1, "seq": 1},
+    {"id": "M1", "kind": "memory", "source": "memory:report-style", "origin": "user_statement", "tokens": 700, "tenant": "team-payments", "priority": 1, "seq": 1},
     {"id": "M2", "kind": "memory", "source": "memory:incident-0917", "origin": "human_confirmed", "tokens": 1200, "tenant": "team-payments", "priority": 2, "seq": 2},
     {"id": "X1", "kind": "memory", "source": "memory:incident-other", "origin": "human_confirmed", "tokens": 500, "tenant": "team-ledger", "priority": 1, "seq": 3}
   ]

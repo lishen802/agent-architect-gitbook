@@ -102,6 +102,9 @@ class EvidenceTests(unittest.TestCase):
         scope = {'service': 'payment-api', 'version': '1.8.3'}
         evidence, excluded, status = select_evidence(self.index, ['RB-11#1', 'RB-12#2'], scope)
         self.assertEqual((evidence, excluded, status), (['RB-12#2'], [('RB-11#1', 'version_mismatch')], 'answerable'))
+        major_ten = {'service': 'payment-api', 'version': '10.2.0'}        # '10' must not match applies_to '1'
+        self.assertEqual(select_evidence(self.index, ['RB-12#2'], major_ten),
+                         ([], [('RB-12#2', 'version_mismatch')], 'insufficient_evidence'))
 
     def test_retrieved_but_inapplicable_material_means_insufficient_evidence(self):
         scope = {'service': 'ledger', 'version': '2.3.1'}
@@ -133,8 +136,18 @@ class EvidenceTests(unittest.TestCase):
         self.assertEqual(check_citations(five, ctx, self.index), [(0, 'number_not_in_quote')])
         self.assertEqual(check_citations(ok, ctx, self.index), [])
 
+    def test_thousands_separators_are_normalised(self):
+        chunk = Chunk(**dict(self.data['chunks'][0], id='T#1', doc_id='T',
+                             text='上限从 1,000 调到 1000 以上，排队请求超过 500 时告警。'))
+        index = Index([chunk], self.data['settings']['embedding_model'])
+        cite = lambda claim, quote: {'claims': [{'text': claim, 'cites': [{'chunk': 'T#1', 'quote': quote}]}]}
+        bad = cite('排队超过 1,500 时告警', '上限从 1,000 调到 1000 以上，排队请求超过 500')
+        good = cite('上限为 1000', '上限从 1,000 调到')
+        self.assertEqual(check_citations(bad, ['T#1'], index), [(0, 'number_not_in_quote')])
+        self.assertEqual(check_citations(good, ['T#1'], index), [])
+
     def test_empty_or_tiny_quote_is_rejected(self):
-        for quote in ('', '  ', '回滚'):
+        for quote in ('', '    ', '回滚'):            # four spaces: only strip() makes it short
             ans = {'claims': [{'text': '应回滚', 'cites': [{'chunk': 'RB-12#2', 'quote': quote}]}]}
             self.assertEqual(check_citations(ans, ['RB-12#2'], self.index), [(0, 'quote_too_short')], quote)
 

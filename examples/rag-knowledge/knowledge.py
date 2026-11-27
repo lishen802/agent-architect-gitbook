@@ -14,6 +14,7 @@ from dataclasses import dataclass, field
 ASCII_TOKEN = re.compile(r'[a-z0-9_]+(?:[-.][a-z0-9_]+)*')
 CJK = re.compile(r'[\u4e00-\u9fff]+')
 NUMBER = re.compile(r'\d+(?:\.\d+)*')
+THOUSANDS = re.compile(r'\d{1,3}(?:,\d{3})+')
 MIN_QUOTE_CHARS = 4
 
 
@@ -200,6 +201,12 @@ def select_evidence(index, ids, scope):
     return evidence, excluded, status
 
 
+def numbers(text):
+    """Arabic-numeral tokens, with thousands separators removed first ('1,000' -> '1000').
+    Chinese numerals such as '十分钟' are out of scope for this check."""
+    return set(NUMBER.findall(THOUSANDS.sub(lambda m: m.group().replace(',', ''), text)))
+
+
 def check_citations(answer, context_ids, index):
     """Program-checkable part of grounding. Each claim must cite chunks that were in
     the context, each quote must appear verbatim in its chunk, and every number in
@@ -225,7 +232,7 @@ def check_citations(answer, context_ids, index):
                 quotes.append(cite['quote'])
         quoted_numbers = set()
         for q in quotes:
-            quoted_numbers.update(NUMBER.findall(q))
-        if quotes and not set(NUMBER.findall(claim['text'])) <= quoted_numbers:
+            quoted_numbers.update(numbers(q))
+        if quotes and not numbers(claim['text']) <= quoted_numbers:
             issues.append((i, 'number_not_in_quote'))
     return issues

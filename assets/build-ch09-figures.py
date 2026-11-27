@@ -68,7 +68,8 @@ def query():
     for i, (p, q) in enumerate(zip(cs, cs[1:])):
         f.arrow((X + W / 2, p['b'] + 4), (X + W / 2, q['y'] - 8), style='loop' if i in (2, 3) else 'main')
     # 不重排时第 3 步直达第 5 步
-    f.arrow((X - 4, cs[2]['cy'] + 14), (X - 18, cs[2]['cy'] + 14), (X - 18, cs[4]['y'] + 12), (X - 8, cs[4]['y'] + 12),
+    bypass_y, fail_y = cs[4]['y'] + 12, cs[4]['y'] + 54   # 直达箭头的入口与失败出口在第 5 步左边上的位置
+    f.arrow((X - 4, cs[2]['cy'] + 14), (X - 18, cs[2]['cy'] + 14), (X - 18, bypass_y), (X - 8, bypass_y),
             style='main', rounded=8, towards=(cs[4]['cx'], cs[4]['cy']))
     # 左侧输入与失败出口
     q = f.card(30, cs[0]['cy'] - 45, 230, '值班人员的问题', ['带认证上下文'], kind='human', h=90, tsize=18)
@@ -76,8 +77,9 @@ def query():
     f.text(145, cs[3]['cy'] - 6, '第 4 步可选，', 17, SUB, 'normal', 'middle')
     f.text(145, cs[3]['cy'] + 20, '不重排时 3 直达 5', 17, SUB, 'normal', 'middle')
     e1 = f.card(30, cs[4]['cy'] - 20, 230, '证据不足', ['说明缺口与已查范围', '不生成结论'], kind='risk', h=100, tsize=18)
-    f.arrow((X - 4, cs[4]['y'] + 54), (e1['r'] + 8, cs[4]['y'] + 54), style='fail')
-    assert 54 - 12 >= 40, '直达箭头与失败出口应拉开距离'
+    f.arrow((X - 4, fail_y), (e1['r'] + 8, fail_y), style='fail')
+    assert fail_y - bypass_y >= 40, f'直达箭头与失败出口仅相距 {fail_y - bypass_y}px'
+    assert cs[4]['y'] < bypass_y < fail_y < cs[4]['b'], '两支箭头都应落在第 5 步的左边上'
     e2 = f.card(30, cs[6]['cy'] - 40, 230, '未通过的陈述', ['退回重写或标为待审'], kind='risk', h=80, tsize=18)
     f.arrow((X - 4, cs[6]['cy']), (e2['r'] + 8, cs[6]['cy']), style='fail')
     assert e1['b'] + 10 < e2['y'], '左侧两个出口重叠'

@@ -88,7 +88,7 @@
 
 ## 第 9 章写作记录
 
-2026 年 11 月 27 日按提纲完成检索增强生成与知识系统章正文初稿，以告警助手接入运维手册与事故复盘贯穿全章：知识缺失、检索失败与使用失败三类归因，检索增强、上下文组织、微调与权威接口的分工，解析、切分与段落元数据，权限预过滤、按文档替换、删除传播与版本核对，BM25、向量与 RRF 混合召回，重排与证据适用性检查，带引用的结构化陈述与引用核对，证据不足的回答方式，检索与回答的分层评测，以及控制点与十二项一页方案的对应。新增三张插图（[构建源文件](assets/build-ch09-figures.py)）和 [`examples/rag-knowledge`](examples/rag-knowledge/README.md) 配套示例（Python 标准库，20 项测试）。外部事实依据 Lewis 等人的 RAG 论文、Barnett 等人的七个失败点、Anthropic Contextual Retrieval、Elasticsearch 的 kNN 过滤、RRF 与 BM25 文档、Cormack 等人的 RRF 论文、Nogueira 与 Cho 的重排论文、Manning 等人的信息检索教材、RAGAS 忠实度文档、Claude Citations 文档和 OWASP LLM08、LLM01，均于当日核对；手册、复盘、向量与评测数字为教学构造，未进行在线模型评测。
+2026 年 11 月 27 日按提纲完成检索增强生成与知识系统章正文初稿，以告警助手接入运维手册与事故复盘贯穿全章：知识缺失、检索失败与使用失败三类归因，检索增强、上下文组织、微调与权威接口的分工，解析、切分与段落元数据，权限预过滤、按文档替换、删除传播与版本核对，BM25、向量与 RRF 混合召回，重排与证据适用性检查，带引用的结构化陈述与引用核对，证据不足的回答方式，检索与回答的分层评测，以及控制点与十二项一页方案的对应。新增三张插图（[构建源文件](assets/build-ch09-figures.py)）和 [`examples/rag-knowledge`](examples/rag-knowledge/README.md) 配套示例（Python 标准库，21 项测试）。外部事实依据 Lewis 等人的 RAG 论文、Barnett 等人的七个失败点、Anthropic Contextual Retrieval、Elasticsearch 的 kNN 过滤、RRF 与 BM25 文档、Cormack 等人的 RRF 论文、Nogueira 与 Cho 的重排论文、Manning 等人的信息检索教材、RAGAS 忠实度文档、Claude Citations 文档和 OWASP LLM08、LLM01，均于当日核对；手册、复盘、向量与评测数字为教学构造，未进行在线模型评测。
 
 ## 第 8 章写作记录
 

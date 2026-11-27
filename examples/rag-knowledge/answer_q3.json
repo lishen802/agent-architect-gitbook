@@ -1,0 +1,73 @@
+{
+ "note": "教学构造：一份针对 Q3 的候选回答，模拟模型输出的结构化陈述；context 为 Q3 通过适用性检查的证据。",
+ "question": "Q3",
+ "context": [
+  "RB-12#2",
+  "PM-031#1",
+  "RB-12#1"
+ ],
+ "claims": [
+  {
+   "text": "连接池耗尽时应只回滚连接池上限这一配置项，不回滚整个版本。",
+   "cites": [
+    {
+     "chunk": "RB-12#2",
+     "quote": "只回滚该配置项"
+    }
+   ]
+  },
+  {
+   "text": "回滚后观察 5 分钟内的连接等待时间。",
+   "cites": [
+    {
+     "chunk": "RB-12#2",
+     "quote": "观察 10 分钟内连接等待时间"
+    }
+   ]
+  },
+  {
+   "text": "也可以回滚到上一个发布版本并重启全部实例。",
+   "cites": [
+    {
+     "chunk": "RB-11#1",
+     "quote": "回滚到上一个发布版本"
+    }
+   ]
+  },
+  {
+   "text": "连接池上限应设为 50。",
+   "cites": [
+    {
+     "chunk": "RB-12#1",
+     "quote": "连接池上限应设为 50"
+    }
+   ]
+  },
+  {
+   "text": "按此处置一定能在 10 分钟内恢复。",
+   "cites": [
+    {
+     "chunk": "RB-12#2",
+     "quote": "观察 10 分钟内连接等待时间"
+    }
+   ]
+  }
+ ],
+ "expected_program_issues": [
+  [
+   1,
+   "number_not_in_quote"
+  ],
+  [
+   2,
+   "cited_chunk_not_in_context"
+  ],
+  [
+   3,
+   "quote_not_found"
+  ]
+ ],
+ "needs_semantic_review": [
+  4
+ ]
+}

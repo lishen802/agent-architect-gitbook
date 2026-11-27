@@ -7,4 +7,4 @@
 - [第 6 章 评测基础：建立任务集与判断结果](06-evaluation-basics.md)
 - [第 7 章 工具调用与外部系统集成](07-tool-integration.md)
 - [第 8 章 上下文组织与记忆管理](08-context-engineering.md)
-- [第 9 章 检索增强生成与知识系统](09-rag-knowledge.md)（撰写中）
+- [第 9 章 检索增强生成与知识系统](09-rag-knowledge.md)

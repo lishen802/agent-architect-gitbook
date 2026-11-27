@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="860" viewBox="0 0 1000 860" role="img" aria-labelledby="t d">
+<title id="t">图 9-2 检索与回答链路</title><desc id="d">问题与认证上下文先确定服务、版本与用户组；在权限预过滤后并行运行 BM25 与向量检索，用 RRF 融合，可选地对前 N 个候选重排；证据适用性检查排除服务或版本不符的材料，没有适用证据时返回证据不足，不生成结论；模型生成带引用的陈述，引用核对检查段落、摘录与数字，未通过的陈述退回或标为待审。各步结果写入调用清单。</desc>
+<defs><filter id="sh" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#0f172a" flood-opacity="0.08"/></filter><marker id="ah-main" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#334155"/></marker><marker id="ah-flow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#64748b"/></marker><marker id="ah-loop" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#64748b"/></marker><marker id="ah-fail" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#dc2626"/></marker><marker id="ah-ok" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#0f766e"/></marker><marker id="ah-model" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.8 L9.5,5 L0,9.2 z" fill="#d97706"/></marker></defs>
+<rect x="0.5" y="0.5" width="999" height="859" rx="18" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="36.0" y="44.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#475569" text-anchor="start">图 9-2｜检索与回答链路：从问题到有依据的回答</text>
+<rect x="300" y="100" width="400" height="58" rx="12" fill="#eaf2ff" stroke="#60a5fa" stroke-width="1.5" filter="url(#sh)"/>
+<circle cx="331.0" cy="129.0" r="13" fill="#1d4ed8"/>
+<text x="331.0" y="134.6" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+<text x="354.0" y="135.3" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#1e293b" text-anchor="start">确定范围：服务、版本、用户组</text>
+<rect x="300" y="184" width="400" height="58" rx="12" fill="#eaf2ff" stroke="#60a5fa" stroke-width="1.5" filter="url(#sh)"/>
+<circle cx="331.0" cy="213.0" r="13" fill="#1d4ed8"/>
+<text x="331.0" y="218.6" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+<text x="354.0" y="219.3" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#1e293b" text-anchor="start">预过滤后检索：BM25 与向量并行</text>
+<rect x="300" y="268" width="400" height="58" rx="12" fill="#eaf2ff" stroke="#60a5fa" stroke-width="1.5" filter="url(#sh)"/>
+<circle cx="331.0" cy="297.0" r="13" fill="#1d4ed8"/>
+<text x="331.0" y="302.6" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+<text x="354.0" y="303.3" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#1e293b" text-anchor="start">融合：RRF 按名次合并</text>
+<rect x="300" y="352" width="400" height="58" rx="12" fill="#fff4e5" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="7 5" filter="url(#sh)"/>
+<circle cx="331.0" cy="381.0" r="13" fill="#b45309"/>
+<text x="331.0" y="386.6" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">4</text>
+<text x="354.0" y="387.3" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#1e293b" text-anchor="start">重排：前 N 个候选</text>
+<rect x="300" y="436" width="400" height="58" rx="12" fill="#eaf2ff" stroke="#60a5fa" stroke-width="1.5" filter="url(#sh)"/>
+<circle cx="331.0" cy="465.0" r="13" fill="#1d4ed8"/>
+<text x="331.0" y="470.6" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">5</text>
+<text x="354.0" y="471.3" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#1e293b" text-anchor="start">适用性检查：服务、版本、状态</text>
+<rect x="300" y="520" width="400" height="58" rx="12" fill="#fff4e5" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+<circle cx="331.0" cy="549.0" r="13" fill="#b45309"/>
+<text x="331.0" y="554.6" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">6</text>
+<text x="354.0" y="555.3" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#1e293b" text-anchor="start">生成：带引用的陈述</text>
+<rect x="300" y="604" width="400" height="58" rx="12" fill="#eaf2ff" stroke="#60a5fa" stroke-width="1.5" filter="url(#sh)"/>
+<circle cx="331.0" cy="633.0" r="13" fill="#1d4ed8"/>
+<text x="331.0" y="638.6" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">7</text>
+<text x="354.0" y="639.3" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#1e293b" text-anchor="start">引用核对：段落、摘录、数字</text>
+<path d="M500.0,162.0 L500.0,176.0" stroke="#334155" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-main)"/>
+<path d="M500.0,246.0 L500.0,260.0" stroke="#334155" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-main)"/>
+<path d="M500.0,330.0 L500.0,344.0" stroke="#64748b" stroke-width="2.0" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#ah-loop)"/>
+<path d="M500.0,414.0 L500.0,428.0" stroke="#64748b" stroke-width="2.0" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#ah-loop)"/>
+<path d="M500.0,498.0 L500.0,512.0" stroke="#334155" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-main)"/>
+<path d="M500.0,582.0 L500.0,596.0" stroke="#334155" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-main)"/>
+<path d="M296.0,311.0 L289.0,311.0 Q282.0,311.0 282.0,318.0 L282.0,445.0 Q282.0,450.0 287.0,450.0 L292.0,450.0" stroke="#334155" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-main)"/>
+<rect x="30" y="84.0" width="230" height="90" rx="12" fill="#ecfdf3" stroke="#4ade80" stroke-width="1.5" filter="url(#sh)"/>
+<text x="145.0" y="119.5" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#1e293b" text-anchor="middle">值班人员的问题</text>
+<text x="145.0" y="149.3" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">带认证上下文</text>
+<path d="M264.0,129.0 L292.0,129.0" stroke="#334155" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-main)"/>
+<text x="145.0" y="375.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">第 4 步可选，</text>
+<text x="145.0" y="401.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">不重排时 3 直达 5</text>
+<rect x="30" y="445.0" width="230" height="100" rx="12" fill="#fef2f2" stroke="#f87171" stroke-width="1.5" filter="url(#sh)"/>
+<text x="145.0" y="472.8" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#1e293b" text-anchor="middle">证据不足</text>
+<text x="145.0" y="502.6" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">说明缺口与已查范围</text>
+<text x="145.0" y="528.1" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">不生成结论</text>
+<path d="M296.0,480.0 L268.0,480.0" stroke="#dc2626" stroke-width="2.0" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#ah-fail)"/>
+<rect x="30" y="593.0" width="230" height="80" rx="12" fill="#fef2f2" stroke="#f87171" stroke-width="1.5" filter="url(#sh)"/>
+<text x="145.0" y="623.5" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#1e293b" text-anchor="middle">未通过的陈述</text>
+<text x="145.0" y="653.3" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">退回重写或标为待审</text>
+<path d="M296.0,633.0 L268.0,633.0" stroke="#dc2626" stroke-width="2.0" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#ah-fail)"/>
+<rect x="740" y="89.0" width="230" height="80" rx="12" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5" filter="url(#sh)"/>
+<text x="855.0" y="119.5" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#1e293b" text-anchor="middle">任务状态</text>
+<text x="855.0" y="149.3" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">服务与运行版本</text>
+<path d="M736.0,129.0 L708.0,129.0" stroke="#64748b" stroke-width="2.0" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-flow)"/>
+<rect x="740" y="183.0" width="230" height="80" rx="12" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5" filter="url(#sh)"/>
+<text x="855.0" y="213.6" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#1e293b" text-anchor="middle">知识索引</text>
+<text x="855.0" y="243.3" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">图 9-1</text>
+<path d="M736.0,213.0 L708.0,213.0" stroke="#64748b" stroke-width="2.0" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-flow)"/>
+<rect x="730" y="342" width="250" height="250" rx="16" fill="#ffffff" fill-opacity="0.55" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="746" y="328" width="136" height="28" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="758.0" y="348.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#334155" text-anchor="start">写入调用清单</text>
+<rect x="750" y="372" width="210" height="42" rx="12" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="855.0" y="398.9" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="600" fill="#1e293b" text-anchor="middle">原问题与改写查询</text>
+<rect x="750" y="424" width="210" height="42" rx="12" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="855.0" y="450.9" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="600" fill="#1e293b" text-anchor="middle">两路结果与名次</text>
+<rect x="750" y="476" width="210" height="42" rx="12" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="855.0" y="502.9" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="600" fill="#1e293b" text-anchor="middle">排除的候选与原因</text>
+<rect x="750" y="528" width="210" height="42" rx="12" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="855.0" y="555.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="600" fill="#1e293b" text-anchor="middle">引用核对结果</text>
+<path d="M704.0,633.0 L847.0,633.0 Q855.0,633.0 855.0,625.0 L855.0,600.0" stroke="#64748b" stroke-width="2.0" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-flow)"/>
+<rect x="300" y="696" width="400" height="80" rx="12" fill="#ecfdf3" stroke="#4ade80" stroke-width="1.5" filter="url(#sh)"/>
+<text x="500.0" y="726.5" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="18" font-weight="600" fill="#1e293b" text-anchor="middle">带引用的回答</text>
+<text x="500.0" y="756.3" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="middle">陈述加带版本的链接</text>
+<path d="M500.0,666.0 L500.0,688.0" stroke="#334155" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-main)"/>
+<rect x="36" y="795" width="22" height="16" rx="4" fill="#ecfdf3" stroke="#4ade80" stroke-width="1.5"/>
+<text x="66.0" y="808.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">人工</text>
+<rect x="120.0" y="795" width="22" height="16" rx="4" fill="#eaf2ff" stroke="#60a5fa" stroke-width="1.5"/>
+<text x="150.0" y="808.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">代码校验与策略</text>
+<rect x="289.0" y="795" width="22" height="16" rx="4" fill="#fff4e5" stroke="#f59e0b" stroke-width="1.5"/>
+<text x="319.0" y="808.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">模型</text>
+<rect x="373.0" y="795" width="22" height="16" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="403.0" y="808.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">状态与存储</text>
+<rect x="508.0" y="795" width="22" height="16" rx="4" fill="#fef2f2" stroke="#f87171" stroke-width="1.5"/>
+<text x="538.0" y="808.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">风险与失败</text>
+<path d="M36,831 L66,831" stroke="#334155" stroke-width="2.5" marker-end="url(#ah-main)"/>
+<text x="76.0" y="836.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">处理顺序</text>
+<path d="M164.0,831 L194.0,831" stroke="#64748b" stroke-width="2.0" marker-end="url(#ah-flow)"/>
+<text x="204.0" y="836.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">数据与记录</text>
+<path d="M309.0,831 L339.0,831" stroke="#dc2626" stroke-width="2.0" stroke-dasharray="7 5" marker-end="url(#ah-fail)"/>
+<text x="349.0" y="836.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">失败出口</text>
+<path d="M437.0,831 L467.0,831" stroke="#64748b" stroke-width="2.0" stroke-dasharray="7 5" marker-end="url(#ah-loop)"/>
+<text x="477.0" y="836.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" font-weight="normal" fill="#475569" text-anchor="start">可选的第 4 步</text>
+</svg>

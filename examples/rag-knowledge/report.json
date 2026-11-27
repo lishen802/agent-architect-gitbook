@@ -1,0 +1,238 @@
+{
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "PAY-504 怎么处理",
+      "bm25": [
+        "RB-30#1"
+      ],
+      "vector": [
+        "PM-031#1",
+        "RB-11#1",
+        "RB-12#2",
+        "RB-12#1",
+        "RB-07#1"
+      ],
+      "hybrid": [
+        "PM-031#1",
+        "RB-30#1",
+        "RB-11#1",
+        "RB-12#2"
+      ],
+      "evidence": [
+        "PM-031#1",
+        "RB-30#1",
+        "RB-12#2"
+      ],
+      "excluded": [
+        [
+          "RB-11#1",
+          "version_mismatch"
+        ]
+      ],
+      "status": "answerable",
+      "status_ok": true,
+      "metrics": {
+        "bm25": {
+          "recall@4": 1.0,
+          "rr": 1.0
+        },
+        "vector": {
+          "recall@4": 0.0,
+          "rr": 0.0
+        },
+        "hybrid": {
+          "recall@4": 1.0,
+          "rr": 0.5
+        }
+      },
+      "evidence_recall": 1.0
+    },
+    {
+      "id": "Q2",
+      "question": "支付接口越来越慢，DB 连不上",
+      "bm25": [
+        "RB-12#1",
+        "RB-30#1",
+        "RB-30#2"
+      ],
+      "vector": [
+        "RB-12#1",
+        "PM-031#1",
+        "RB-12#2",
+        "RB-11#1",
+        "RB-07#1"
+      ],
+      "hybrid": [
+        "RB-12#1",
+        "PM-031#1",
+        "RB-30#1",
+        "RB-12#2"
+      ],
+      "evidence": [
+        "RB-12#1",
+        "PM-031#1",
+        "RB-30#1",
+        "RB-12#2"
+      ],
+      "excluded": [],
+      "status": "answerable",
+      "status_ok": true,
+      "metrics": {
+        "bm25": {
+          "recall@4": 0.5,
+          "rr": 1.0
+        },
+        "vector": {
+          "recall@4": 1.0,
+          "rr": 1.0
+        },
+        "hybrid": {
+          "recall@4": 1.0,
+          "rr": 1.0
+        }
+      },
+      "evidence_recall": 1.0
+    },
+    {
+      "id": "Q3",
+      "question": "连接池满了要不要回滚整个版本",
+      "bm25": [
+        "RB-11#1",
+        "RB-12#2",
+        "PM-031#1",
+        "RB-12#1",
+        "RB-07#1"
+      ],
+      "vector": [
+        "RB-12#2",
+        "RB-11#1",
+        "PM-031#1",
+        "RB-12#1"
+      ],
+      "hybrid": [
+        "RB-11#1",
+        "RB-12#2",
+        "PM-031#1",
+        "RB-12#1"
+      ],
+      "evidence": [
+        "RB-12#2",
+        "PM-031#1",
+        "RB-12#1"
+      ],
+      "excluded": [
+        [
+          "RB-11#1",
+          "version_mismatch"
+        ]
+      ],
+      "status": "answerable",
+      "status_ok": true,
+      "metrics": {
+        "bm25": {
+          "recall@4": 1.0,
+          "rr": 0.5
+        },
+        "vector": {
+          "recall@4": 1.0,
+          "rr": 1.0
+        },
+        "hybrid": {
+          "recall@4": 1.0,
+          "rr": 0.5
+        }
+      },
+      "evidence_recall": 1.0
+    },
+    {
+      "id": "Q4",
+      "question": "以前有没有发布改了连接池配置导致的事故",
+      "bm25": [
+        "RB-12#2",
+        "PM-031#1",
+        "RB-11#1",
+        "RB-30#1",
+        "RB-12#1"
+      ],
+      "vector": [
+        "RB-12#2",
+        "RB-11#1",
+        "PM-031#1",
+        "RB-12#1"
+      ],
+      "hybrid": [
+        "RB-12#2",
+        "PM-031#1",
+        "RB-11#1",
+        "RB-12#1"
+      ],
+      "evidence": [
+        "RB-12#2",
+        "PM-031#1",
+        "RB-12#1"
+      ],
+      "excluded": [
+        [
+          "RB-11#1",
+          "version_mismatch"
+        ]
+      ],
+      "status": "answerable",
+      "status_ok": true,
+      "metrics": {
+        "bm25": {
+          "recall@4": 1.0,
+          "rr": 0.5
+        },
+        "vector": {
+          "recall@4": 1.0,
+          "rr": 0.333
+        },
+        "hybrid": {
+          "recall@4": 1.0,
+          "rr": 0.5
+        }
+      },
+      "evidence_recall": 1.0
+    },
+    {
+      "id": "Q5",
+      "question": "ledger 服务的证书怎么轮换",
+      "bm25": [
+        "RB-30#1"
+      ],
+      "vector": [],
+      "hybrid": [
+        "RB-30#1"
+      ],
+      "evidence": [],
+      "excluded": [
+        [
+          "RB-30#1",
+          "service_mismatch"
+        ]
+      ],
+      "status": "insufficient_evidence",
+      "status_ok": true
+    }
+  ],
+  "summary": {
+    "bm25": {
+      "questions": 4,
+      "mean_recall@4": 0.875,
+      "mrr": 0.75
+    },
+    "vector": {
+      "questions": 4,
+      "mean_recall@4": 0.75,
+      "mrr": 0.583
+    },
+    "hybrid": {
+      "questions": 4,
+      "mean_recall@4": 1.0,
+      "mrr": 0.625
+    },
+    "status_ok": "5/5"
+  }
+}

@@ -1,0 +1,401 @@
+{
+ "note": "教学构造：文档、权限组、向量与标注均为虚构；向量的维度名称只为便于阅读。",
+ "vector_axes": [
+  "连接池",
+  "超时与延迟",
+  "回滚与发布",
+  "错误码",
+  "证书与安全",
+  "慢查询",
+  "幂等与重复",
+  "搜索"
+ ],
+ "settings": {
+  "per_retriever_k": 5,
+  "rrf_k": 60,
+  "fused_size": 4,
+  "metric_k": 4,
+  "min_similarity": 0.5
+ },
+ "context": {
+  "tenant": "team-payments",
+  "user": "oncall-lin",
+  "groups": [
+   "oncall-payments",
+   "sre-all"
+  ]
+ },
+ "chunks": [
+  {
+   "id": "RB-12#1",
+   "doc_id": "RB-12",
+   "doc_version": 3,
+   "title": "payment-api 连接池耗尽处置手册",
+   "text": "适用于 payment-api 3.x。症状：请求排队，数据库连接等待时间上升，接口超时比例升高。",
+   "tenant": "team-payments",
+   "acl": [
+    "oncall-payments"
+   ],
+   "status": "published",
+   "service": "payment-api",
+   "kind": "runbook",
+   "vector": [
+    0.9,
+    0.6,
+    0.1,
+    0,
+    0,
+    0.2,
+    0,
+    0
+   ],
+   "applies_to": "3"
+  },
+  {
+   "id": "RB-12#2",
+   "doc_id": "RB-12",
+   "doc_version": 3,
+   "title": "payment-api 连接池耗尽处置手册",
+   "text": "处置：先确认最近一次发布是否修改了连接池上限 max_pool_size；如果修改过，只回滚该配置项，然后观察 10 分钟内连接等待时间。",
+   "tenant": "team-payments",
+   "acl": [
+    "oncall-payments"
+   ],
+   "status": "published",
+   "service": "payment-api",
+   "kind": "runbook",
+   "vector": [
+    0.8,
+    0.2,
+    0.6,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "applies_to": "3"
+  },
+  {
+   "id": "RB-11#1",
+   "doc_id": "RB-11",
+   "doc_version": 5,
+   "title": "payment-api 2.x 连接池处置（旧版）",
+   "text": "处置：连接池耗尽时回滚到上一个发布版本，然后重启全部实例。",
+   "tenant": "team-payments",
+   "acl": [
+    "oncall-payments"
+   ],
+   "status": "published",
+   "service": "payment-api",
+   "kind": "runbook",
+   "vector": [
+    0.7,
+    0.2,
+    0.8,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "applies_to": "2"
+  },
+  {
+   "id": "RB-30#1",
+   "doc_id": "RB-30",
+   "doc_version": 2,
+   "title": "支付错误码手册",
+   "text": "错误码 PAY-504：调用 ledger 服务超时。先查看 ledger 的延迟，再检查 payment-api 的重试次数配置。",
+   "tenant": "team-payments",
+   "acl": [
+    "sre-all"
+   ],
+   "status": "published",
+   "service": "payment-api",
+   "kind": "runbook",
+   "vector": [
+    0,
+    0.7,
+    0,
+    0.8,
+    0,
+    0,
+    0,
+    0
+   ],
+   "applies_to": ""
+  },
+  {
+   "id": "RB-30#2",
+   "doc_id": "RB-30",
+   "doc_version": 2,
+   "title": "支付错误码手册",
+   "text": "错误码 PAY-409：重复提交被幂等检查拦截，属于正常业务结果，无需处置。",
+   "tenant": "team-payments",
+   "acl": [
+    "sre-all"
+   ],
+   "status": "published",
+   "service": "payment-api",
+   "kind": "runbook",
+   "vector": [
+    0,
+    0,
+    0,
+    0.9,
+    0,
+    0,
+    0.5,
+    0
+   ],
+   "applies_to": ""
+  },
+  {
+   "id": "RB-07#1",
+   "doc_id": "RB-07",
+   "doc_version": 1,
+   "title": "数据库慢查询排查",
+   "text": "先查看执行时间最长的 SQL，确认是否缺少索引，再看连接数是否接近上限。",
+   "tenant": "team-payments",
+   "acl": [
+    "sre-all"
+   ],
+   "status": "published",
+   "service": "*",
+   "kind": "runbook",
+   "vector": [
+    0.4,
+    0.3,
+    0,
+    0,
+    0,
+    0.9,
+    0,
+    0
+   ],
+   "applies_to": ""
+  },
+  {
+   "id": "PM-031#1",
+   "doc_id": "PM-031",
+   "doc_version": 1,
+   "title": "2026 年 9 月 payment-api 超时事故复盘",
+   "text": "根因：一次发布把连接池上限从 50 改为 10。回滚该配置后 8 分钟内恢复。",
+   "tenant": "team-payments",
+   "acl": [
+    "oncall-payments"
+   ],
+   "status": "published",
+   "service": "payment-api",
+   "kind": "postmortem",
+   "vector": [
+    0.8,
+    0.6,
+    0.5,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "applies_to": ""
+  },
+  {
+   "id": "PM-044#1",
+   "doc_id": "PM-044",
+   "doc_version": 1,
+   "title": "支付网关证书私钥泄露事件复盘",
+   "text": "处置：吊销旧证书，签发新证书，并在 ledger 等下游服务更新信任链。",
+   "tenant": "team-payments",
+   "acl": [
+    "security"
+   ],
+   "status": "published",
+   "service": "payment-gateway",
+   "kind": "postmortem",
+   "vector": [
+    0,
+    0,
+    0.1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "applies_to": ""
+  },
+  {
+   "id": "RB-15#1",
+   "doc_id": "RB-15",
+   "doc_version": 1,
+   "title": "连接池上限调整建议（草稿）",
+   "text": "建议把 max_pool_size 调整为 200，未经评审。",
+   "tenant": "team-payments",
+   "acl": [
+    "oncall-payments"
+   ],
+   "status": "draft",
+   "service": "payment-api",
+   "kind": "runbook",
+   "vector": [
+    0.95,
+    0.3,
+    0.3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "applies_to": ""
+  },
+  {
+   "id": "X-90#1",
+   "doc_id": "X-90",
+   "doc_version": 1,
+   "title": "search-api 连接池处置",
+   "text": "search-api 连接池耗尽时，先扩容查询节点。",
+   "tenant": "team-search",
+   "acl": [
+    "oncall-search"
+   ],
+   "status": "published",
+   "service": "search-api",
+   "kind": "runbook",
+   "vector": [
+    0.9,
+    0.4,
+    0.2,
+    0,
+    0,
+    0,
+    0,
+    0.5
+   ],
+   "applies_to": ""
+  }
+ ],
+ "questions": [
+  {
+   "id": "Q1",
+   "question": "PAY-504 怎么处理",
+   "vector": [
+    0.5,
+    0.4,
+    0.5,
+    0.4,
+    0,
+    0.3,
+    0.4,
+    0
+   ],
+   "scope": {
+    "service": "payment-api",
+    "version": "3.4.2"
+   },
+   "relevant": [
+    "RB-30#1"
+   ],
+   "expect": "answerable"
+  },
+  {
+   "id": "Q2",
+   "question": "支付接口越来越慢，DB 连不上",
+   "vector": [
+    0.8,
+    0.7,
+    0.1,
+    0,
+    0,
+    0.1,
+    0,
+    0
+   ],
+   "scope": {
+    "service": "payment-api",
+    "version": "3.4.2"
+   },
+   "relevant": [
+    "RB-12#1",
+    "RB-12#2"
+   ],
+   "expect": "answerable"
+  },
+  {
+   "id": "Q3",
+   "question": "连接池满了要不要回滚整个版本",
+   "vector": [
+    0.8,
+    0.1,
+    0.7,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "scope": {
+    "service": "payment-api",
+    "version": "3.4.2"
+   },
+   "relevant": [
+    "RB-12#2"
+   ],
+   "expect": "answerable"
+  },
+  {
+   "id": "Q4",
+   "question": "以前有没有发布改了连接池配置导致的事故",
+   "vector": [
+    0.7,
+    0.3,
+    0.6,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "scope": {
+    "service": "payment-api",
+    "version": "3.4.2"
+   },
+   "relevant": [
+    "PM-031#1"
+   ],
+   "expect": "answerable"
+  },
+  {
+   "id": "Q5",
+   "question": "ledger 服务的证书怎么轮换",
+   "vector": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "scope": {
+    "service": "ledger",
+    "version": "1.8.0"
+   },
+   "relevant": [],
+   "expect": "insufficient_evidence"
+  }
+ ],
+ "source_versions": {
+  "RB-12": 3,
+  "RB-11": 5,
+  "RB-30": 2,
+  "RB-07": 1,
+  "PM-031": 1,
+  "PM-044": 1,
+  "RB-15": 1,
+  "X-90": 1
+ }
+}

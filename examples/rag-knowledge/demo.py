@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parent
 
 def load(path=ROOT / 'scenario.json'):
     data = json.loads(Path(path).read_text(encoding='utf-8'))
-    return data, Index([Chunk(**c) for c in data['chunks']])
+    return data, Index([Chunk(**c) for c in data['chunks']], data['settings']['embedding_model'])
 
 
 def run(data, index):
@@ -19,18 +19,20 @@ def run(data, index):
     for q in data['questions']:
         lists = {
             'bm25': index.bm25(q['question'], ctx, s['per_retriever_k']),
-            'vector': index.vector(q['vector'], ctx, s['per_retriever_k'], s['min_similarity']),
+            'vector': index.vector(q['vector'], s['embedding_model'], ctx, s['per_retriever_k'], s['min_similarity']),
         }
-        lists['hybrid'] = rrf([lists['bm25'], lists['vector']], k=s['rrf_k'], size=s['fused_size'])
+        fused = rrf([lists['bm25'], lists['vector']], k=s['rrf_k'], size=s['fused_size'])
+        lists['hybrid'] = [cid for cid, _ in fused]
         evidence, excluded, status = select_evidence(index, lists['hybrid'], q['scope'])
         row = {'id': q['id'], 'question': q['question'], **lists,
+               'hybrid_scores': [round(score, 5) for _, score in fused],
                'evidence': evidence, 'excluded': [list(e) for e in excluded], 'status': status,
                'status_ok': status == q['expect']}
         if q['relevant']:
             row['metrics'] = {}
             for name in ('bm25', 'vector', 'hybrid'):
                 r = recall_at_k(lists[name], q['relevant'], s['metric_k'])
-                rr = reciprocal_rank(lists[name], q['relevant'])
+                rr = reciprocal_rank(lists[name], q['relevant'], s['metric_k'])
                 row['metrics'][name] = {'recall@%d' % s['metric_k']: round(r, 3), 'rr': round(rr, 3)}
                 totals[name].append((r, rr))
             row['evidence_recall'] = round(len(set(evidence) & set(q['relevant'])) / len(q['relevant']), 3)

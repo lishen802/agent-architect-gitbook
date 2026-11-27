@@ -3,10 +3,11 @@ from figlib import Figure, SUB, chip
 
 
 def ingest():
-    f = Figure(1000, 690, '图 9-1 知识处理链路',
+    f = Figure(1000, 718, '图 9-1 知识处理链路',
                '手册库与复盘库的页面依次经过解析、切分和加元数据，写入倒排索引与向量索引，向量由同一嵌入模型生成；'
                '解析发现隐藏内容或异常字符时标为待审，不入库。源系统的变更事件驱动三类同步：内容更新按文档替换全部段落，'
-               '权限变化同步到段落元数据，删除覆盖向量、缓存与评测样例；版本核对比较源系统与索引中的文档版本，发现滞后。',
+               '权限变化同步到段落元数据，删除覆盖向量、缓存与评测样例，其中回答缓存与评测样例不在知识索引里，需另行清理；'
+               '版本核对比较源系统与索引中的文档版本，发现滞后。',
                label='图 9-1｜知识处理链路：从源文档到可检索、可撤回的段落')
     Y1 = 100
     src = f.card(40, Y1, 210, '源系统', ['手册库、复盘库', '页面带权限与版本'], kind='external', h=100, tsize=18)
@@ -42,14 +43,15 @@ def ingest():
         sc.append(f.card(48 + i * 230, GY + 24, 214, t, l, kind=kind, h=80, tsize=18))
     f.arrow((store['cx'] + 60, GY - 4), (store['cx'] + 60, store['b'] + 8), style='flow', label='同步到索引',
             at=(store['cx'] + 70, GY - 30), anchor='start', towards=(store['cx'] + 60, store['cy']))
-    f.legend(36, 630, ['external', 'code', 'model', 'state', 'risk'])
-    f.legend(36, 660, [], extra=[('main', '处理顺序'), ('model', '生成向量'), ('flow', '变更与同步'), ('fail', '不入库')],
+    f.text(40, 618, '注：“同步到索引”只更新知识索引；回答缓存、段落说明与评测样例由删除流程另行清理。', 17, SUB, maxw=920)
+    f.legend(36, 658, ['external', 'code', 'model', 'state', 'risk'])
+    f.legend(36, 688, [], extra=[('main', '处理顺序'), ('model', '生成向量'), ('flow', '变更与同步'), ('fail', '不入库')],
              neutral=False)
     f.save('09-ingest-pipeline.svg')
 
 
 def query():
-    f = Figure(1000, 860, '图 9-2 检索与回答链路',
+    f = Figure(1000, 902, '图 9-2 检索与回答链路',
                '问题与认证上下文先确定服务、版本与用户组；在权限预过滤后并行运行 BM25 与向量检索，用 RRF 融合，'
                '可选地对前 N 个候选重排；证据适用性检查排除服务或版本不符的材料，没有适用证据时返回证据不足，不生成结论；'
                '模型生成带引用的陈述，引用核对检查段落、摘录与数字，未通过的陈述退回或标为待审。各步结果写入调用清单。',
@@ -61,12 +63,12 @@ def query():
              ('引用核对：段落、摘录、数字', 'code')]
     cs, y = [], 100
     for i, (t, kind) in enumerate(steps):
-        cs.append(f.card(X, y, W, t, kind=kind, badge=i + 1, h=58, align='left', tsize=18, dashed=(i == 3)))
-        y += 58 + 26
+        cs.append(f.card(X, y, W, t, kind=kind, badge=i + 1, h=64, align='left', tsize=18, dashed=(i == 3)))
+        y += 64 + 26
     for i, (p, q) in enumerate(zip(cs, cs[1:])):
         f.arrow((X + W / 2, p['b'] + 4), (X + W / 2, q['y'] - 8), style='loop' if i in (2, 3) else 'main')
     # 不重排时第 3 步直达第 5 步
-    f.arrow((X - 4, cs[2]['cy'] + 14), (X - 18, cs[2]['cy'] + 14), (X - 18, cs[4]['y'] + 14), (X - 8, cs[4]['y'] + 14),
+    f.arrow((X - 4, cs[2]['cy'] + 14), (X - 18, cs[2]['cy'] + 14), (X - 18, cs[4]['y'] + 12), (X - 8, cs[4]['y'] + 12),
             style='main', rounded=8, towards=(cs[4]['cx'], cs[4]['cy']))
     # 左侧输入与失败出口
     q = f.card(30, cs[0]['cy'] - 45, 230, '值班人员的问题', ['带认证上下文'], kind='human', h=90, tsize=18)
@@ -74,7 +76,8 @@ def query():
     f.text(145, cs[3]['cy'] - 6, '第 4 步可选，', 17, SUB, 'normal', 'middle')
     f.text(145, cs[3]['cy'] + 20, '不重排时 3 直达 5', 17, SUB, 'normal', 'middle')
     e1 = f.card(30, cs[4]['cy'] - 20, 230, '证据不足', ['说明缺口与已查范围', '不生成结论'], kind='risk', h=100, tsize=18)
-    f.arrow((X - 4, cs[4]['y'] + 44), (e1['r'] + 8, cs[4]['y'] + 44), style='fail')
+    f.arrow((X - 4, cs[4]['y'] + 54), (e1['r'] + 8, cs[4]['y'] + 54), style='fail')
+    assert 54 - 12 >= 40, '直达箭头与失败出口应拉开距离'
     e2 = f.card(30, cs[6]['cy'] - 40, 230, '未通过的陈述', ['退回重写或标为待审'], kind='risk', h=80, tsize=18)
     f.arrow((X - 4, cs[6]['cy']), (e2['r'] + 8, cs[6]['cy']), style='fail')
     assert e1['b'] + 10 < e2['y'], '左侧两个出口重叠'
@@ -95,8 +98,8 @@ def query():
             towards=(RX + RW / 2, GY + 120))
     out = f.card(X, cs[6]['b'] + 34, W, '带引用的回答', ['陈述加带版本的链接'], kind='human', h=80, tsize=18)
     f.arrow((X + W / 2, cs[6]['b'] + 4), (X + W / 2, out['y'] - 8), style='main')
-    f.legend(36, 808, ['human', 'code', 'model', 'state', 'risk'])
-    f.legend(36, 836, [], extra=[('main', '处理顺序'), ('flow', '数据与记录'), ('fail', '失败出口'),
+    f.legend(36, out['b'] + 32, ['human', 'code', 'model', 'state', 'risk'])
+    f.legend(36, out['b'] + 60, [], extra=[('main', '处理顺序'), ('flow', '数据与记录'), ('fail', '失败出口'),
                                  ('loop', '可选的第 4 步')], neutral=False)
     f.save('09-query-pipeline.svg')
 

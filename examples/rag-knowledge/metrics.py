@@ -8,9 +8,9 @@ def recall_at_k(ranked, relevant, k):
     return len(set(ranked[:k]) & set(relevant)) / len(relevant)
 
 
-def reciprocal_rank(ranked, relevant):
-    """1 / rank of the first relevant chunk; 0 when none is retrieved."""
-    for rank, cid in enumerate(ranked, start=1):
+def reciprocal_rank(ranked, relevant, k):
+    """1 / rank of the first relevant chunk within the top k; 0 when there is none."""
+    for rank, cid in enumerate(ranked[:k], start=1):
         if cid in relevant:
             return 1.0 / rank
     return 0.0

@@ -1,5 +1,5 @@
 {
- "note": "教学构造：文档、权限组、向量与标注均为虚构；向量的维度名称只为便于阅读。",
+ "note": "教学构造：文档、权限组、向量与标注均为虚构；向量的维度名称只为便于阅读。Q5 的标注按当前用户（oncall-lin）的权限确定：相关复盘 PM-044 只对安全组可见。",
  "vector_axes": [
   "连接池",
   "超时与延迟",
@@ -15,7 +15,8 @@
   "rrf_k": 60,
   "fused_size": 4,
   "metric_k": 4,
-  "min_similarity": 0.5
+  "min_similarity": 0.5,
+  "embedding_model": "example-embed-v2"
  },
  "context": {
   "tenant": "team-payments",
@@ -31,7 +32,7 @@
    "doc_id": "RB-12",
    "doc_version": 3,
    "title": "payment-api 连接池耗尽处置手册",
-   "text": "适用于 payment-api 3.x。症状：请求排队，数据库连接等待时间上升，接口超时比例升高。",
+   "text": "适用于 payment-api 1.x。症状：请求排队，数据库连接等待时间上升，接口超时比例升高。",
    "tenant": "team-payments",
    "acl": [
     "oncall-payments"
@@ -49,7 +50,8 @@
     0,
     0
    ],
-   "applies_to": "3"
+   "applies_to": "1",
+   "embedding_model": "example-embed-v2"
   },
   {
    "id": "RB-12#2",
@@ -74,13 +76,14 @@
     0,
     0
    ],
-   "applies_to": "3"
+   "applies_to": "1",
+   "embedding_model": "example-embed-v2"
   },
   {
    "id": "RB-11#1",
    "doc_id": "RB-11",
    "doc_version": 5,
-   "title": "payment-api 2.x 连接池处置（旧版）",
+   "title": "payment-api 0.x 连接池处置（旧版）",
    "text": "处置：连接池耗尽时回滚到上一个发布版本，然后重启全部实例。",
    "tenant": "team-payments",
    "acl": [
@@ -99,7 +102,8 @@
     0,
     0
    ],
-   "applies_to": "2"
+   "applies_to": "0",
+   "embedding_model": "example-embed-v2"
   },
   {
    "id": "RB-30#1",
@@ -124,7 +128,8 @@
     0,
     0
    ],
-   "applies_to": ""
+   "applies_to": "",
+   "embedding_model": "example-embed-v2"
   },
   {
    "id": "RB-30#2",
@@ -149,7 +154,8 @@
     0.5,
     0
    ],
-   "applies_to": ""
+   "applies_to": "",
+   "embedding_model": "example-embed-v2"
   },
   {
    "id": "RB-07#1",
@@ -174,7 +180,8 @@
     0,
     0
    ],
-   "applies_to": ""
+   "applies_to": "",
+   "embedding_model": "example-embed-v2"
   },
   {
    "id": "PM-031#1",
@@ -199,20 +206,21 @@
     0,
     0
    ],
-   "applies_to": ""
+   "applies_to": "",
+   "embedding_model": "example-embed-v2"
   },
   {
    "id": "PM-044#1",
    "doc_id": "PM-044",
    "doc_version": 1,
-   "title": "支付网关证书私钥泄露事件复盘",
-   "text": "处置：吊销旧证书，签发新证书，并在 ledger 等下游服务更新信任链。",
+   "title": "ledger 证书私钥泄露事件复盘",
+   "text": "处置：吊销旧证书，签发新证书，按轮换步骤更新 ledger 及其调用方的信任链。",
    "tenant": "team-payments",
    "acl": [
     "security"
    ],
    "status": "published",
-   "service": "payment-gateway",
+   "service": "ledger",
    "kind": "postmortem",
    "vector": [
     0,
@@ -224,7 +232,8 @@
     0,
     0
    ],
-   "applies_to": ""
+   "applies_to": "",
+   "embedding_model": "example-embed-v2"
   },
   {
    "id": "RB-15#1",
@@ -249,7 +258,8 @@
     0,
     0
    ],
-   "applies_to": ""
+   "applies_to": "",
+   "embedding_model": "example-embed-v2"
   },
   {
    "id": "X-90#1",
@@ -274,6 +284,33 @@
     0,
     0.5
    ],
+   "applies_to": "",
+   "embedding_model": "example-embed-v2"
+  },
+  {
+   "id": "X-91#1",
+   "doc_id": "X-91",
+   "doc_version": 1,
+   "title": "payment-api 连接池与 PAY-504 处置记录",
+   "text": "PAY-504 出现时，连接池满了直接回滚整个版本，并轮换 ledger 证书。",
+   "tenant": "team-search",
+   "acl": [
+    "sre-all"
+   ],
+   "status": "published",
+   "service": "payment-api",
+   "kind": "runbook",
+   "vector": [
+    0.7,
+    0.4,
+    0.6,
+    0.5,
+    0.4,
+    0,
+    0.2,
+    0
+   ],
+   "embedding_model": "example-embed-v2",
    "applies_to": ""
   }
  ],
@@ -293,7 +330,7 @@
    ],
    "scope": {
     "service": "payment-api",
-    "version": "3.4.2"
+    "version": "1.8.3"
    },
    "relevant": [
     "RB-30#1"
@@ -315,7 +352,7 @@
    ],
    "scope": {
     "service": "payment-api",
-    "version": "3.4.2"
+    "version": "1.8.3"
    },
    "relevant": [
     "RB-12#1",
@@ -338,7 +375,7 @@
    ],
    "scope": {
     "service": "payment-api",
-    "version": "3.4.2"
+    "version": "1.8.3"
    },
    "relevant": [
     "RB-12#2"
@@ -360,7 +397,7 @@
    ],
    "scope": {
     "service": "payment-api",
-    "version": "3.4.2"
+    "version": "1.8.3"
    },
    "relevant": [
     "PM-031#1"
@@ -382,7 +419,7 @@
    ],
    "scope": {
     "service": "ledger",
-    "version": "1.8.0"
+    "version": "2.3.1"
    },
    "relevant": [],
    "expect": "insufficient_evidence"
@@ -396,6 +433,7 @@
   "PM-031": 1,
   "PM-044": 1,
   "RB-15": 1,
-  "X-90": 1
+  "X-90": 1,
+  "X-91": 1
  }
 }
